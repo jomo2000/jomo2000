@@ -53,6 +53,32 @@ h1{
   color: black;
 }
 
+  /* Skateboarder animation */
+.skateboarder{
+  position: fixed;
+  bottom: 0;      /* sticks to bottom of screen */
+  left: -120px;   /* start off-screen */
+  z-index: 1000;  /* above other content */
+  width: 100px;   /* adjust size if needed */
+}
+
+.skateboarder img{
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+/* keyframes to move the skateboarder across the screen */
+@keyframes skate {
+  0% { left: -120px; }
+  100% { left: 100%; }
+}
+
+/* apply the animation */
+.skateboarder{
+  animation: skate 10s linear infinite; /* 10s across screen, repeats forever */
+}
+
 </style>
 
 </head>

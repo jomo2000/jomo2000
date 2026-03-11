@@ -7,33 +7,50 @@
 <style>
 
 body{
-background:black;
-color:#00ffff;
-font-family:Courier New, monospace;
-text-align:center;
+  background:black;
+  color:#00ffff;
+  font-family:Courier New, monospace;
+  text-align:center;
 }
 
 h1{
-font-size:48px;
-text-shadow:0 0 10px cyan;
+  font-size:48px;
+  text-shadow:0 0 10px cyan;
 }
 
-.menu a{
-display:block;
-margin:20px;
-font-size:24px;
-color:#00ffff;
-text-decoration:none;
-border:2px solid cyan;
-padding:10px;
-width:250px;
-margin-left:auto;
-margin-right:auto;
+/* --- Desktop icons styles --- */
+.desktop-icons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-.menu a:hover{
-background:cyan;
-color:black;
+.icon{
+  width: 120px;
+  margin: 20px;
+  text-align: center;
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.icon img{
+  width: 64px;
+  height: 64px;
+  display: block;
+  margin: 0 auto 10px;
+  border: 2px solid #00ffff;
+  padding: 4px;
+  background: black;
+}
+
+.icon:hover img{
+  background: #00ffff;
+}
+
+.icon:hover p{
+  color: black;
 }
 
 </style>

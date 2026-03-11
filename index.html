@@ -2,176 +2,166 @@
 <html>
 
 <head>
-<title>Jomo's Retro Website</title>
+  <title>Jomo's Retro Website</title>
 
-<style>
+  <style>
+    body {
+      background: black;
+      color: #00ffff;
+      font-family: Courier New, monospace;
+      text-align: center;
+    }
 
-body{
-  background:black;
-  color:#00ffff;
-  font-family:Courier New, monospace;
-  text-align:center;
-}
+    h1 {
+      font-size: 48px;
+      text-shadow: 0 0 10px cyan;
+    }
 
-h1{
-  font-size:48px;
-  text-shadow:0 0 10px cyan;
-}
+    /* --- Desktop icons styles --- */
+    .desktop-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+    }
 
-/* --- Desktop icons styles --- */
-.desktop-icons{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 50px;
-}
+    .icon {
+      width: 120px;
+      margin: 20px;
+      text-align: center;
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 16px;
+    }
 
-.icon{
-  width: 120px;
-  margin: 20px;
-  text-align: center;
-  color: #00ffff;
-  text-decoration: none;
-  font-size: 16px;
-}
+    .icon img {
+      width: 64px;
+      height: 64px;
+      display: block;
+      margin: 0 auto 10px;
+      border: 2px solid #00ffff;
+      padding: 4px;
+      background: black;
+    }
 
-.icon img{
-  width: 64px;
-  height: 64px;
-  display: block;
-  margin: 0 auto 10px;
-  border: 2px solid #00ffff;
-  padding: 4px;
-  background: black;
-}
+    .icon:hover img {
+      background: #00ffff;
+    }
 
-.icon:hover img{
-  background: #00ffff;
-}
+    .icon:hover p {
+      color: black;
+    }
 
-.icon:hover p{
-  color: black;
-}
+    /* --- Skateboarder animation --- */
+    .skateboarder {
+      position: fixed;
+      bottom: 0;
+      left: -120px;
+      z-index: 1000; /* above TV and icons */
+      width: 100px;
+      animation: skate 10s linear infinite;
+    }
 
-  <div class="desktop-icons">
-  <!-- all your icons here -->
-</div>
+    .skateboarder img {
+      width: 100px;
+      height: auto;
+      display: block;
+    }
 
-<!-- --- Add this block for the retro TV video --- -->
-<div class="tv-video">
-  <iframe width="320" height="180" 
-          src="https://www.youtube.com/watch?v=uQ7nLPc8lxs&list=PLf3VYtK8bOR2-smc-2Eh5P3kOaNP59dqA&index=10" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-  </iframe>
-</div>
+    @keyframes skate {
+      0% {
+        left: -120px;
+      }
 
-<!-- Skateboarder animation -->
-<div class="skateboarder">
-  <img src="skateboarder-cat.gif" alt="Skateboarder" />
-</div>
-  
-  /* Skateboarder animation */
-.skateboarder{
-  position: fixed;
-  bottom: 0;      /* sticks to bottom of screen */
-  left: -120px;   /* start off-screen */
-  z-index: 1000;  /* above other content */
-  width: 100px;   /* adjust size if needed */
-}
+      100% {
+        left: 100%;
+      }
+    }
 
-.skateboarder img{
-  width: 100px;
-  height: auto;
-  display: block;
-}
+    /* --- Retro TV video --- */
+    .tv-video {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      width: 340px;
+      height: 200px;
+      padding: 10px;
+      background: #000;
+      border: 5px solid #0ff;
+      box-shadow: 0 0 20px #0ff, inset 0 0 5px #0ff;
+      z-index: 900; /* below skateboarder */
+    }
 
-/* keyframes to move the skateboarder across the screen */
-@keyframes skate {
-  0% { left: -120px; }
-  100% { left: 100%; }
-}
-
-/* apply the animation */
-.skateboarder{
-  animation: skate 10s linear infinite; /* 10s across screen, repeats forever */
-}
-
-  /* TV-style video box */
-.tv-video{
-  position: fixed;
-  top: 50%;             /* center vertically */
-  right: 20px;          /* distance from right edge */
-  transform: translateY(-50%); /* perfectly center */
-  width: 340px;         /* TV box width */
-  height: 200px;        /* TV box height */
-  padding: 10px;
-  background: #000;     /* TV body color */
-  border: 5px solid #0ff; /* cyan border for retro glow */
-  box-shadow: 0 0 20px #0ff, inset 0 0 5px #0ff; /* glowing effect */
-  z-index: 900;         /* below skateboarder */
-}
-
-.tv-video iframe{
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-</style>
+    .tv-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 
 </head>
 
 <body>
 
-<h1>Welcome to My Website</h1>
+  <h1>Welcome to My Website</h1>
+  <p>My personal corner of the internet</p>
 
-<p>My personal corner of the internet</p>
+  <div class="desktop-icons">
 
-<div class="desktop-icons">
+    <a href="recipes.html" class="icon">
+      <img src="recipes-icon.png" alt="Recipes" />
+      <p>Recipes</p>
+    </a>
 
-  <a href="recipes.html" class="icon">
-    <img src="recipes-icon.png" alt="Recipes" />
-    <p>Recipes</p>
-  </a>
+    <a href="music-videos.html" class="icon">
+      <img src="music-videos-icon.png" alt="Music Videos" />
+      <p>Music Videos</p>
+    </a>
 
-  <a href="music-videos.html" class="icon">
-    <img src="music-videos-icon.png" alt="Music Videos" />
-    <p>Music Videos</p>
-  </a>
+    <a href="webkinz.html" class="icon">
+      <img src="webkinz-icon.png" alt="Webkinz" />
+      <p>Webkinz</p>
+    </a>
 
-  <a href="webkinz.html" class="icon">
-    <img src="webkinz-icon.png" alt="Webkinz" />
-    <p>Webkinz</p>
-  </a>
+    <a href="tv-shows.html" class="icon">
+      <img src="tv-shows-icon.png" alt="TV Shows" />
+      <p>TV Shows</p>
+    </a>
 
-  <a href="tv-shows.html" class="icon">
-    <img src="tv-shows-icon.png" alt="TV Shows" />
-    <p>TV Shows</p>
-  </a>
+    <a href="movies.html" class="icon">
+      <img src="movies-icon.png" alt="Movies" />
+      <p>Movies</p>
+    </a>
 
-  <a href="movies.html" class="icon">
-    <img src="movies-icon.png" alt="Movies" />
-    <p>Movies</p>
-  </a>
+    <a href="cable-tv.html" class="icon">
+      <img src="cable-tv-schedule-icon.png" alt="Cable TV" />
+      <p>Cable TV</p>
+    </a>
 
-  <a href="cable-tv.html" class="icon">
-    <img src="cable-tv-schedule-icon.png" alt="Cable TV" />
-    <p>Cable TV</p>
-  </a>
+    <a href="2000s-nostalgia.html" class="icon">
+      <img src="early-2000s-nostalgia.png" alt="2000s Nostalgia" />
+      <p>Early 2000s</p>
+    </a>
 
-  <a href="2000s-nostalgia.html" class="icon">
-    <img src="early-2000s-nostalgia.png" alt="2000s Nostalgia" />
-    <p>Early 2000s</p>
-  </a>
+  </div>
 
-</div>
-  
-<div class="skateboarder">
-  <img src="skateboarder-cat.gif" alt="Skateboarder" />
-  
-</div></body>
+  <!-- Retro TV video -->
+  <div class="tv-video">
+    <iframe width="320" height="180" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Skateboarder cat -->
+  <div class="skateboarder">
+    <img src="skateboarder-cat.gif" alt="Skateboarder" />
+  </div>
+
+</body>
 
 </html>

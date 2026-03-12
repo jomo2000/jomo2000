@@ -17,20 +17,14 @@ body {
 header {
   text-align: center;
   padding: 20px;
-  background-color: #3a3a3a; /* dark grey background */
-  border-bottom: 4px solid #222; /* darker grey border */
+  background-color: #3a3a3a;
+  border-bottom: 4px solid #222;
 }
 
 header h1 {
   font-size: 2.5rem;
-  color: #f5f0d1; /* dark cream text */
-  text-shadow: 2px 2px #1e90ff; /* bright blue retro shadow */
-}
-
-header h1 {
-  font-size: 2.5rem;
-  color: #cfc9a0;
-  text-shadow: 2px 2px #000;
+  color: #f5f0d1;
+  text-shadow: 2px 2px #1e90ff;
 }
 
 .tv-grid {
@@ -65,14 +59,14 @@ header h1 {
   margin-top: 15px;
   padding: 15px;
   background-color: rgba(0,0,0,0.8);
-  border: 3px solid #556B2F;
+  border: 3px solid #1e90ff;
   border-radius: 10px;
-  color: #cfc9a0;
+  color: #f5f0d1;
 }
 
 .show-info h3 {
   margin-top: 0;
-  color: #00ffff;
+  color: #1e90ff;
 }
 
 .show-info p {
@@ -84,15 +78,15 @@ header h1 {
   padding: 6px 12px;
   border: none;
   border-radius: 6px;
-  background-color: #556B2F;
-  color: #fff;
+  background-color: #3a3a3a;
+  color: #f5f0d1;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .minimize-btn:hover {
-  background-color: #6B8E23;
+  background-color: #1e90ff;
 }
 
 .remote-gif {
@@ -105,6 +99,30 @@ header h1 {
   cursor: pointer;
 }
 
+/* Back to homepage button */
+
+.home-button-container {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #3a3a3a;
+  color: #f5f0d1;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid #1e90ff;
+  transition: all 0.2s ease;
+}
+
+.home-button:hover {
+  background-color: #1e90ff;
+  color: #fff;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -114,7 +132,7 @@ header h1 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f5f0d1; /* dark cream to match header text */
+  background: #f5f0d1;
   border-radius: 6px;
 }
 
@@ -123,15 +141,15 @@ header h1 {
   padding: 2px 5px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 1px solid #556B2F;
+  border: 1px solid #1e90ff;
   background-color: #222;
-  color: #cfc9a0;
+  color: #f5f0d1;
 }
 
 .posts {
   margin-top: 10px;
   padding-left: 15px;
-  border-left: 2px dotted #00ffcc;
+  border-left: 2px dotted #1e90ff;
 }
 
 .posts p {
@@ -150,140 +168,141 @@ header h1 {
 
 <section class="tv-grid">
 
-  <!-- One Tree Hill -->
-  <div class="tv-show" data-show-name="One Tree Hill">
-    <img src="one-tree-hill.jpg" alt="One Tree Hill">
-    <div class="show-info">
-      <h3>One Tree Hill</h3>
-      <p>Rating: ⭐⭐⭐⭐☆</p>
-      <p>Episode: <input type="text" value="12"> / Season: <input type="text" value="3"></p>
-      <div class="posts" data-posts='[
-        "Post 1: That basketball game episode was intense!",
-        "Post 2: I love the dynamic between Lucas and Nathan.",
-        "Post 3: The season 3 finale gave me chills!"
-      ]'></div>
-      <button class="minimize-btn">Minimize</button>
-    </div>
-  </div>
+<!-- One Tree Hill -->
+<div class="tv-show" data-show-name="One Tree Hill">
+<img src="one-tree-hill.jpg" alt="One Tree Hill">
+<div class="show-info">
+<h3>One Tree Hill</h3>
+<p>Rating: ⭐⭐⭐⭐☆</p>
+<p>Episode: <input type="text" value="12"> / Season: <input type="text" value="3"></p>
+<div class="posts" data-posts='[
+"Post 1: That basketball game episode was intense!",
+"Post 2: I love the dynamic between Lucas and Nathan.",
+"Post 3: The season 3 finale gave me chills!"
+]'></div>
+<button class="minimize-btn">Minimize</button>
+</div>
+</div>
 
-  <!-- Orphan Black -->
-  <div class="tv-show" data-show-name="Orphan Black">
-    <img src="orphan-black.jpg" alt="Orphan Black">
-    <div class="show-info">
-      <h3>Orphan Black</h3>
-      <p>Rating: ⭐⭐⭐⭐⭐</p>
-      <p>Episode: <input type="text" value="7"> / Season: <input type="text" value="2"></p>
-      <div class="posts" data-posts='[
-        "Post 1: The clones storyline is incredible.",
-        "Post 2: Sarah is such a compelling character!"
-      ]'></div>
-      <button class="minimize-btn">Minimize</button>
-    </div>
-  </div>
+<!-- Orphan Black -->
+<div class="tv-show" data-show-name="Orphan Black">
+<img src="orphan-black.jpg" alt="Orphan Black">
+<div class="show-info">
+<h3>Orphan Black</h3>
+<p>Rating: ⭐⭐⭐⭐⭐</p>
+<p>Episode: <input type="text" value="7"> / Season: <input type="text" value="2"></p>
+<div class="posts" data-posts='[
+"Post 1: The clones storyline is incredible.",
+"Post 2: Sarah is such a compelling character!"
+]'></div>
+<button class="minimize-btn">Minimize</button>
+</div>
+</div>
 
-  <!-- The OC -->
-  <div class="tv-show" data-show-name="The OC">
-    <img src="the-oc.jpg" alt="The OC">
-    <div class="show-info">
-      <h3>The OC</h3>
-      <p>Rating: ⭐⭐⭐⭐☆</p>
-      <p>Episode: <input type="text" value="5"> / Season: <input type="text" value="1"></p>
-      <div class="posts" data-posts='[
-        "Post 1: Ryan and Seth are such a funny duo.",
-        "Post 2: The drama in Newport Beach is captivating."
-      ]'></div>
-      <button class="minimize-btn">Minimize</button>
-    </div>
-  </div>
+<!-- The OC -->
+<div class="tv-show" data-show-name="The OC">
+<img src="the-oc.jpg" alt="The OC">
+<div class="show-info">
+<h3>The OC</h3>
+<p>Rating: ⭐⭐⭐⭐☆</p>
+<p>Episode: <input type="text" value="5"> / Season: <input type="text" value="1"></p>
+<div class="posts" data-posts='[
+"Post 1: Ryan and Seth are such a funny duo.",
+"Post 2: The drama in Newport Beach is captivating."
+]'></div>
+<button class="minimize-btn">Minimize</button>
+</div>
+</div>
 
-  <!-- Friday Night Lights -->
-  <div class="tv-show" data-show-name="Friday Night Lights">
-    <img src="fnl.jpg" alt="Friday Night Lights">
-    <div class="show-info">
-      <h3>Friday Night Lights</h3>
-      <p>Rating: ⭐⭐⭐⭐⭐</p>
-      <p>Episode: <input type="text" value="8"> / Season: <input type="text" value="2"></p>
-      <div class="posts" data-posts='[
-        "Post 1: The football scenes are so intense!",
-        "Post 2: Coach Taylor is one of the best TV characters."
-      ]'></div>
-      <button class="minimize-btn">Minimize</button>
-    </div>
-  </div>
+<!-- Friday Night Lights -->
+<div class="tv-show" data-show-name="Friday Night Lights">
+<img src="fnl.jpg" alt="Friday Night Lights">
+<div class="show-info">
+<h3>Friday Night Lights</h3>
+<p>Rating: ⭐⭐⭐⭐⭐</p>
+<p>Episode: <input type="text" value="8"> / Season: <input type="text" value="2"></p>
+<div class="posts" data-posts='[
+"Post 1: The football scenes are so intense!",
+"Post 2: Coach Taylor is one of the best TV characters."
+]'></div>
+<button class="minimize-btn">Minimize</button>
+</div>
+</div>
 
-  <!-- Everything Sucks -->
-  <div class="tv-show" data-show-name="Everything Sucks">
-    <img src="everything-sucks.jpg" alt="Everything Sucks">
-    <div class="show-info">
-      <h3>Everything Sucks</h3>
-      <p>Rating: ⭐⭐⭐☆☆</p>
-      <p>Episode: <input type="text" value="3"> / Season: <input type="text" value="1"></p>
-      <div class="posts" data-posts='[
-        "Post 1: I love the 90s vibe!",
-        "Post 2: The music scenes are amazing."
-      ]'></div>
-      <button class="minimize-btn">Minimize</button>
-    </div>
-  </div>
+<!-- Everything Sucks -->
+<div class="tv-show" data-show-name="Everything Sucks">
+<img src="everything-sucks.jpg" alt="Everything Sucks">
+<div class="show-info">
+<h3>Everything Sucks</h3>
+<p>Rating: ⭐⭐⭐☆☆</p>
+<p>Episode: <input type="text" value="3"> / Season: <input type="text" value="1"></p>
+<div class="posts" data-posts='[
+"Post 1: I love the 90s vibe!",
+"Post 2: The music scenes are amazing."
+]'></div>
+<button class="minimize-btn">Minimize</button>
+</div>
+</div>
 
-  <!-- Pretty Little Liars -->
-  <div class="tv-show" data-show-name="Pretty Little Liars">
-    <img src="pretty-little-liars.jpg" alt="Pretty Little Liars">
-    <div class="show-info">
-      <h3>Pretty Little Liars</h3>
-      <p>Rating: ⭐⭐⭐⭐☆</p>
-      <p>Episode: <input type="text" value="6"> / Season: <input type="text" value="3"></p>
-      <div class="posts" data-posts='[
-        "Post 1: Mystery keeps me hooked!",
-        "Post 2: I can’t believe the plot twists."
-      ]'></div>
-      <button class="minimize-btn">Minimize</button>
-    </div>
-  </div>
+<!-- Pretty Little Liars -->
+<div class="tv-show" data-show-name="Pretty Little Liars">
+<img src="pretty-little-liars.jpg" alt="Pretty Little Liars">
+<div class="show-info">
+<h3>Pretty Little Liars</h3>
+<p>Rating: ⭐⭐⭐⭐☆</p>
+<p>Episode: <input type="text" value="6"> / Season: <input type="text" value="3"></p>
+<div class="posts" data-posts='[
+"Post 1: Mystery keeps me hooked!",
+"Post 2: I can’t believe the plot twists."
+]'></div>
+<button class="minimize-btn">Minimize</button>
+</div>
+</div>
 
-  <!-- Survivor -->
-  <div class="tv-show" data-show-name="Survivor">
-    <img src="survivor.jpg" alt="Survivor">
-    <div class="show-info">
-      <h3>Survivor</h3>
-      <p>Rating: ⭐⭐⭐⭐☆</p>
-      <p>Episode: <input type="text" value="10"> / Season: <input type="text" value="35"></p>
-      <div class="posts" data-posts='[
-        "Post 1: The strategy in this season is incredible.",
-        "Post 2: Favorite contestant so far is amazing!"
-      ]'></div>
-      <button class="minimize-btn">Minimize</button>
-    </div>
-  </div>
+<!-- Survivor -->
+<div class="tv-show" data-show-name="Survivor">
+<img src="survivor.jpg" alt="Survivor">
+<div class="show-info">
+<h3>Survivor</h3>
+<p>Rating: ⭐⭐⭐⭐☆</p>
+<p>Episode: <input type="text" value="10"> / Season: <input type="text" value="35"></p>
+<div class="posts" data-posts='[
+"Post 1: The strategy in this season is incredible.",
+"Post 2: Favorite contestant so far is amazing!"
+]'></div>
+<button class="minimize-btn">Minimize</button>
+</div>
+</div>
 
 </section>
+
+<div class="home-button-container">
+<a class="home-button" href="https://jomo2000.github.io/jomo2000/">⬅ Back to Homepage</a>
+</div>
 
 <img class="remote-gif" src="remote.gif" alt="TV Remote">
 
 <script>
 document.querySelectorAll('.tv-show').forEach(show => {
-  const img = show.querySelector('img');
-  const info = show.querySelector('.show-info');
-  const minimizeBtn = show.querySelector('.minimize-btn');
-  const postsDiv = show.querySelector('.posts');
+const img = show.querySelector('img');
+const info = show.querySelector('.show-info');
+const minimizeBtn = show.querySelector('.minimize-btn');
+const postsDiv = show.querySelector('.posts');
 
-  // Load posts from data-posts
-  const postsArray = JSON.parse(postsDiv.getAttribute('data-posts'));
-  postsArray.forEach(post => {
-    const p = document.createElement('p');
-    p.textContent = post;
-    postsDiv.appendChild(p);
-  });
+const postsArray = JSON.parse(postsDiv.getAttribute('data-posts'));
+postsArray.forEach(post => {
+const p = document.createElement('p');
+p.textContent = post;
+postsDiv.appendChild(p);
+});
 
-  // Expand show
-  img.addEventListener('click', () => {
-    info.style.display = 'block';
-  });
+img.addEventListener('click', () => {
+info.style.display = 'block';
+});
 
-  // Minimize show
-  minimizeBtn.addEventListener('click', () => {
-    info.style.display = 'none';
-  });
+minimizeBtn.addEventListener('click', () => {
+info.style.display = 'none';
+});
 });
 </script>
 

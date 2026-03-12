@@ -67,6 +67,19 @@
     ul li {
       margin-bottom: 10px;
     }
+
+    /* RUN AWAY IMAGE */
+
+    #runawayImage {
+      position: fixed;
+      top: 60%;
+      left: 60%;
+      width: 220px;
+      z-index: 9999;
+      cursor: pointer;
+      transition: top 0.25s, left 0.25s;
+    }
+
   </style>
 </head>
 
@@ -113,6 +126,29 @@
     <li><a href="movies.html">Go to Movies Page</a></li>
     <li><a href="tv-shows.html">Go to TV Shows Page</a></li>
   </ul>
+
+  <!-- RUNAWAY IMAGE -->
+  <img id="runawayImage" src="cant-touch-this-sue.jpg">
+
+  <script>
+
+    const img = document.getElementById("runawayImage");
+
+    function moveImage() {
+
+      const maxX = window.innerWidth - 250;
+      const maxY = window.innerHeight - 250;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      img.style.left = randomX + "px";
+      img.style.top = randomY + "px";
+    }
+
+    img.addEventListener("mouseenter", moveImage);
+
+  </script>
 
 </body>
 

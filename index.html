@@ -126,11 +126,13 @@
       width: 100%;
     }
 
-    /* Skateboard Cat */
+    /* Skateboard Cat fixed at bottom with spacing */
     .skateboarder {
+      position: fixed;
+      bottom: 20px; /* space above content */
+      left: -150px; /* start off screen */
       width: 100px;
-      margin: 20px auto;
-      display: block;
+      z-index: 1000;
       animation: skate 10s linear infinite;
     }
 
@@ -140,11 +142,11 @@
 
     @keyframes skate {
       0% {
-        transform: translateX(-150px);
+        left: -150px;
       }
 
       100% {
-        transform: translateX(100vw);
+        left: 100%;
       }
     }
 
@@ -238,11 +240,11 @@
       </div>
     </div>
 
-    <!-- Skateboard Cat -->
-    <div class="skateboarder">
-      <img src="skateboarder-cat.gif">
-    </div>
+  </div>
 
+  <!-- Skateboard Cat -->
+  <div class="skateboarder">
+    <img src="skateboarder-cat.gif">
   </div>
 
 </body>

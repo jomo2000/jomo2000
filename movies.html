@@ -3,333 +3,354 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Movie List</title>
+<title>My Movie Diary</title>
 <style>
+  /* Body & general */
   body {
     background-color: black;
     color: #00ffff;
-    font-family: 'Verdana', sans-serif;
-    margin: 0; padding: 0;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
   }
   h1 {
+    width: 100%;
     text-align: center;
-    padding: 20px;
-    border-bottom: 4px solid #00ffff;
-    font-size: 2.2em;
-    text-shadow: 2px 2px #006666;
+    color: #00ffff;
+    text-shadow:
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 20px #00ffff;
+    font-weight: bold;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
   }
+
+  /* Container for the flames + movie list */
   .container {
-    width: 90%;
+    position: relative;
     max-width: 700px;
-    margin: 40px auto;
+    width: 100%;
+    box-sizing: border-box;
   }
+
+  /* Movie list container */
+  .movie-list {
+    border: 3px solid #00ffff;
+    padding: 20px 40px;
+    box-shadow:
+      0 0 10px #00ffff,
+      inset 0 0 15px #00ffff;
+    background-color: #000;
+    overflow-y: auto;
+    max-height: 75vh;
+    font-size: 1.1rem;
+  }
+
+  /* Each movie line */
   .movie {
-    border: 2px solid #00ffff;
-    padding: 12px;
-    margin: 8px 0;
-    background: #000;
-    box-shadow: 0 0 8px #00ffff;
     display: flex;
     justify-content: space-between;
-    font-size: 1.15em;
-    transition: background-color 0.2s, color 0.2s, transform 0.2s;
-    cursor: default;
+    border-bottom: 1px solid #00ffff;
+    padding: 8px 0;
+    font-weight: 600;
+    text-shadow: 0 0 5px #00ffff;
   }
-  .movie:hover {
-    background: #00ffff;
-    color: black;
-    transform: scale(1.02);
-  }
-  .title {
-    font-weight: bold;
-    flex-grow: 1;
+  .movie:last-child {
+    border-bottom: none;
   }
   .date {
-    font-style: italic;
+    font-family: monospace;
+    color: #66ffff;
+    font-weight: normal;
     min-width: 110px;
     text-align: right;
-    user-select: none;
   }
+
+  /* Flames on sides */
+  .flame {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 4px #00ffff);
+    animation: flicker 1.5s infinite alternate;
+  }
+  .flame.left {
+    left: -50px;
+  }
+  .flame.right {
+    right: -50px;
+    transform: scaleX(-1);
+  }
+
+  /* Flame shape using CSS animation and shapes */
+  .flame svg path {
+    fill: #00ffff;
+    filter: drop-shadow(0 0 6px #00ffff);
+    animation: flameGlow 1.5s infinite alternate;
+  }
+
+  @keyframes flicker {
+    0% { opacity: 0.9; transform: translateY(0) scale(1); }
+    50% { opacity: 0.7; transform: translateY(-4px) scale(1.05); }
+    100% { opacity: 0.9; transform: translateY(0) scale(1); }
+  }
+  @keyframes flameGlow {
+    0% { fill: #00ffff; filter: drop-shadow(0 0 6px #00ffff); }
+    50% { fill: #33ffff; filter: drop-shadow(0 0 10px #33ffff); }
+    100% { fill: #00ffff; filter: drop-shadow(0 0 6px #00ffff); }
+  }
+
 </style>
 </head>
 <body>
 
-<h1>🎬 My Movie List</h1>
+<div>
+  <h1>My Movie Diary</h1>
+  <div class="container">
 
-<div class="container">
-  <div class="movie"><span class="title">Uncle Frank</span><span class="date">2021-09-25</span></div>
-  <div class="movie"><span class="title">Birds of Paradise</span><span class="date">2021-09-25</span></div>
-  <div class="movie"><span class="title">Hocus Pocus</span><span class="date">1993-10-02</span></div>
-  <div class="movie"><span class="title">No Time to Die</span><span class="date">2021-10-17</span></div>
-  <div class="movie"><span class="title">Dune</span><span class="date">2021-10-29</span></div>
-  <div class="movie"><span class="title">Level 16</span><span class="date">2018-10-29</span></div>
-  <div class="movie"><span class="title">Squid Game</span><span class="date">2021-10-29</span></div>
-  <div class="movie"><span class="title">Don't Look Up</span><span class="date">2021-12-28</span></div>
-  <div class="movie"><span class="title">Giant Little Ones</span><span class="date">2018-12-29</span></div>
-  <div class="movie"><span class="title">Wrong Turn</span><span class="date">2021-12-29</span></div>
-  <div class="movie"><span class="title">Ellie and Abbie (and Ellie's Dead Aunt)</span><span class="date">2020-12-29</span></div>
-  <div class="movie"><span class="title">All Summers End</span><span class="date">2017-12-29</span></div>
-  <div class="movie"><span class="title">Scream</span><span class="date">2022-01-16</span></div>
-  <div class="movie"><span class="title">Alive</span><span class="date">2018-01-16</span></div>
-  <div class="movie"><span class="title">Love and Monsters</span><span class="date">2020-01-16</span></div>
-  <div class="movie"><span class="title">Cop Car</span><span class="date">2015-01-18</span></div>
-  <div class="movie"><span class="title">Underwater</span><span class="date">2020-02-06</span></div>
-  <div class="movie"><span class="title">Sorority Wars</span><span class="date">2009-02-12</span></div>
-  <div class="movie"><span class="title">Fresh</span><span class="date">2022-03-27</span></div>
-  <div class="movie"><span class="title">The Texas Chainsaw Massacre</span><span class="date">2003-03-27</span></div>
-  <div class="movie"><span class="title">The Rules of Attraction</span><span class="date">2002-03-27</span></div>
-  <div class="movie"><span class="title">The Texas Chainsaw Massacre: The Beginning</span><span class="date">2006-03-28</span></div>
-  <div class="movie"><span class="title">At Last</span><span class="date">2020-03-28</span></div>
-  <div class="movie"><span class="title">Bend It Like Beckham</span><span class="date">2002-04-14</span></div>
-  <div class="movie"><span class="title">Shiva Baby</span><span class="date">2020-04-14</span></div>
-  <div class="movie"><span class="title">Love, Classified</span><span class="date">2022-04-25</span></div>
-  <div class="movie"><span class="title">Crush</span><span class="date">2022-04-30</span></div>
-  <div class="movie"><span class="title">My First Summer</span><span class="date">2020-05-06</span></div>
-  <div class="movie"><span class="title">Benedetta</span><span class="date">2021-05-21</span></div>
-  <div class="movie"><span class="title">Wild Things</span><span class="date">1998-05-22</span></div>
-  <div class="movie"><span class="title">Everything Everywhere All at Once</span><span class="date">2022-05-24</span></div>
-  <div class="movie"><span class="title">Prisoners</span><span class="date">2013-06-07</span></div>
-  <div class="movie"><span class="title">When I Knew</span><span class="date">2009-06-09</span></div>
-  <div class="movie"><span class="title">Irma Vep</span><span class="date">2022-06-09</span></div>
-  <div class="movie"><span class="title">Nobody Sleeps in the Woods Tonight</span><span class="date">2020-06-10</span></div>
-  <div class="movie"><span class="title">Choose or Die</span><span class="date">2022-07-10</span></div>
-  <div class="movie"><span class="title">You Can Live Forever</span><span class="date">2022-07-18</span></div>
-  <div class="movie"><span class="title">Mrs. Harris Goes to Paris</span><span class="date">2022-07-18</span></div>
-  <div class="movie"><span class="title">1BR</span><span class="date">2019-07-25</span></div>
-  <div class="movie"><span class="title">Sleepers</span><span class="date">1996-08-03</span></div>
-  <div class="movie"><span class="title">Ocean's Eight</span><span class="date">2018-08-06</span></div>
-  <div class="movie"><span class="title">The Girl Next Door</span><span class="date">2007-08-11</span></div>
-  <div class="movie"><span class="title">Bodies Bodies Bodies</span><span class="date">2022-08-20</span></div>
-  <div class="movie"><span class="title">Where the Crawdads Sing</span><span class="date">2022-08-22</span></div>
-  <div class="movie"><span class="title">12 Feet Deep</span><span class="date">2017-08-23</span></div>
-  <div class="movie"><span class="title">Coming Home in the Dark</span><span class="date">2021-09-02</span></div>
-  <div class="movie"><span class="title">The Retreat</span><span class="date">2021-09-12</span></div>
-  <div class="movie"><span class="title">Goat</span><span class="date">2016-09-12</span></div>
-  <div class="movie"><span class="title">Do Revenge</span><span class="date">2022-09-17</span></div>
-  <div class="movie"><span class="title">Don't Worry Darling</span><span class="date">2022-09-24</span></div>
-  <div class="movie"><span class="title">High School Musical</span><span class="date">2006-09-26</span></div>
-  <div class="movie"><span class="title">Blonde</span><span class="date">2022-09-30</span></div>
-  <div class="movie"><span class="title">Deliverance</span><span class="date">1972-10-01</span></div>
-  <div class="movie"><span class="title">Bros</span><span class="date">2022-10-14</span></div>
-  <div class="movie"><span class="title">Super Hot</span><span class="date">2021-10-14</span></div>
-  <div class="movie"><span class="title">Vampyros Lesbos</span><span class="date">1971-10-14</span></div>
-  <div class="movie"><span class="title">Call Jane</span><span class="date">2022-11-13</span></div>
-  <div class="movie"><span class="title">Falling for Christmas</span><span class="date">2022-11-13</span></div>
-  <div class="movie"><span class="title">Avatar: The Way of Water</span><span class="date">2022-12-20</span></div>
-  <div class="movie"><span class="title">Remember the Daze</span><span class="date">2007-12-31</span></div>
-  <div class="movie"><span class="title">White Noise</span><span class="date">2023-01-10</span></div>
-  <div class="movie"><span class="title">The Messenger: The Story of Joan of Arc</span><span class="date">1999-02-14</span></div>
-  <div class="movie"><span class="title">The Black Phone</span><span class="date">2021-02-27</span></div>
-  <div class="movie"><span class="title">Cars</span><span class="date">2006-03-03</span></div>
-  <div class="movie"><span class="title">The Opposite of Sex</span><span class="date">1998-03-03</span></div>
-  <div class="movie"><span class="title">Scream VI</span><span class="date">2023-03-12</span></div>
-  <div class="movie"><span class="title">Cocaine Bear</span><span class="date">2023-03-16</span></div>
-  <div class="movie"><span class="title">The Hunger Games</span><span class="date">2012-03-23</span></div>
-  <div class="movie"><span class="title">The Hunger Games: Catching Fire</span><span class="date">2013-03-23</span></div>
-  <div class="movie"><span class="title">The Hunger Games: Mockingjay – Part 1</span><span class="date">2014-03-29</span></div>
-  <div class="movie"><span class="title">Motocrossed!</span><span class="date">2001-03-29</span></div>
-  <div class="movie"><span class="title">Dungeons & Dragons: Honor Among Thieves</span><span class="date">2023-04-12</span></div>
-  <div class="movie"><span class="title">Empire Records</span><span class="date">1995-04-26</span></div>
-  <div class="movie"><span class="title">The Hunt</span><span class="date">2020-04-29</span></div>
-  <div class="movie"><span class="title">Do Not Reply</span><span class="date">2019-04-29</span></div>
-  <div class="movie"><span class="title">Cadet Kelly</span><span class="date">2002-05-13</span></div>
-  <div class="movie"><span class="title">Are You There God? It's Me, Margaret.</span><span class="date">2023-05-13</span></div>
-  <div class="movie"><span class="title">Rise of the Planet of the Apes</span><span class="date">2011-05-22</span></div>
-  <div class="movie"><span class="title">Jennifer's Body</span><span class="date">2009-05-29</span></div>
-  <div class="movie"><span class="title">The Thirteenth Year</span><span class="date">1999-05-29</span></div>
-  <div class="movie"><span class="title">Saturday Night Fever</span><span class="date">1977-05-29</span></div>
-  <div class="movie"><span class="title">The Lizzie McGuire Movie</span><span class="date">2003-06-13</span></div>
-  <div class="movie"><span class="title">The Mist</span><span class="date">2007-06-13</span></div>
-  <div class="movie"><span class="title">Spider-Man: Across the Spider-Verse</span><span class="date">2023-06-15</span></div>
-  <div class="movie"><span class="title">The Princess Diaries 2: Royal Engagement</span><span class="date">2004-06-19</span></div>
-  <div class="movie"><span class="title">The Aristocats</span><span class="date">1970-06-19</span></div>
-  <div class="movie"><span class="title">No Hard Feelings</span><span class="date">2023-06-27</span></div>
-  <div class="movie"><span class="title">Lucky Fish</span><span class="date">2022-07-15</span></div>
-  <div class="movie"><span class="title">Barbie</span><span class="date">2023-07-24</span></div>
-  <div class="movie"><span class="title">Mean Girls</span><span class="date">2004-08-08</span></div>
-  <div class="movie"><span class="title">Coraline</span><span class="date">2009-08-16</span></div>
-  <div class="movie"><span class="title">Red, White & Royal Blue</span><span class="date">2023-08-16</span></div>
-  <div class="movie"><span class="title">Bottoms</span><span class="date">2023-09-01</span></div>
-  <div class="movie"><span class="title">No Exit</span><span class="date">2022-09-06</span></div>
-  <div class="movie"><span class="title">The Sweetest Thing</span><span class="date">2002-09-11</span></div>
-  <div class="movie"><span class="title">Home</span><span class="date">2015-09-16</span></div>
-  <div class="movie"><span class="title">The Half of It</span><span class="date">2020-09-16</span></div>
-  <div class="movie"><span class="title">Hannah Gadsby: Nanette</span><span class="date">2018-09-19</span></div>
-  <div class="movie"><span class="title">We the Animals</span><span class="date">2018-09-27</span></div>
-  <div class="movie"><span class="title">Warm Bodies</span><span class="date">2013-09-29</span></div>
-  <div class="movie"><span class="title">6 Balloons</span><span class="date">2018-10-13</span></div>
-  <div class="movie"><span class="title">Looking for Her</span><span class="date">2022-10-21</span></div>
-  <div class="movie"><span class="title">Atlantis: The Lost Empire</span><span class="date">2001-10-31</span></div>
-  <div class="movie"><span class="title">Five Nights at Freddy's</span><span class="date">2023-11-04</span></div>
-  <div class="movie"><span class="title">Matilda</span><span class="date">1996-11-04</span></div>
-  <div class="movie"><span class="title">Hounddog</span><span class="date">2007-11-14</span></div>
-  <div class="movie"><span class="title">Hitch</span><span class="date">2005-11-18</span></div>
-  <div class="movie"><span class="title">The Hunger Games: The Ballad of Songbirds & Snakes</span><span class="date">2023-11-21</span></div>
-  <div class="movie"><span class="title">Stamped from the Beginning</span><span class="date">2023-11-23</span></div>
-  <div class="movie"><span class="title">Genie</span><span class="date">2023-12-10</span></div>
-  <div class="movie"><span class="title">Eileen</span><span class="date">2023-12-13</span></div>
-  <div class="movie"><span class="title">The Grinch</span><span class="date">2018-12-13</span></div>
-  <div class="movie"><span class="title">Men in Black</span><span class="date">1997-12-17</span></div>
-  <div class="movie"><span class="title">The Parent Trap</span><span class="date">1998-12-18</span></div>
-  <div class="movie"><span class="title">Great Expectations</span><span class="date">1998-12-19</span></div>
-  <div class="movie"><span class="title">Serving in Silence - The Margarethe Cammermeyer Story</span><span class="date">1995-12-19</span></div>
-  <div class="movie"><span class="title">The House Bunny</span><span class="date">2008-12-29</span></div>
-  <div class="movie"><span class="title">Wonka</span><span class="date">2023-12-29</span></div>
-  <div class="movie"><span class="title">Saltburn</span><span class="date">2024-01-05</span></div>
-  <div class="movie"><span class="title">Mamma Mia!</span><span class="date">2008-01-07</span></div>
-  <div class="movie"><span class="title">Call Me by Your Name</span><span class="date">2017-01-07</span></div>
-  <div class="movie"><span class="title">Sky High</span><span class="date">2005-01-09</span></div>
-  <div class="movie"><span class="title">Ella Enchanted</span><span class="date">2004-01-15</span></div>
-  <div class="movie"><span class="title">Going to the Mat</span><span class="date">2004-01-24</span></div>
-  <div class="movie"><span class="title">Full Circle</span><span class="date">2023-01-24</span></div>
-  <div class="movie"><span class="title">The Indian in the Cupboard</span><span class="date">1995-01-25</span></div>
-  <div class="movie"><span class="title">Stand by Me</span><span class="date">1986-02-08</span></div>
-  <div class="movie"><span class="title">Harriet</span><span class="date">2019-02-08</span></div>
-  <div class="movie"><span class="title">Mean Girls</span><span class="date">2024-02-15</span></div>
-  <div class="movie"><span class="title">Breaking the Ice</span><span class="date">2022-02-15</span></div>
-  <div class="movie"><span class="title">There's Something About Mary</span><span class="date">1998-02-16</span></div>
-  <div class="movie"><span class="title">Drive-Away Dolls</span><span class="date">2024-02-26</span></div>
-  <div class="movie"><span class="title">Palo Alto</span><span class="date">2013-02-29</span></div>
-  <div class="movie"><span class="title">Blue Jean</span><span class="date">2022-03-05</span></div>
-  <div class="movie"><span class="title">Fried Green Tomatoes</span><span class="date">1991-03-08</span></div>
-  <div class="movie"><span class="title">Damsel</span><span class="date">2024-03-29</span></div>
-  <div class="movie"><span class="title">Love Lies Bleeding</span><span class="date">2024-03-30</span></div>
-  <div class="movie"><span class="title">Madame Web</span><span class="date">2024-04-08</span></div>
-  <div class="movie"><span class="title">Leave the World Behind</span><span class="date">2023-04-12</span></div>
-  <div class="movie"><span class="title">The Iron Claw</span><span class="date">2023-04-12</span></div>
-  <div class="movie"><span class="title">Kill Bill: Vol. 1</span><span class="date">2003-04-13</span></div>
-  <div class="movie"><span class="title">Austin Powers: The Spy Who Shagged Me</span><span class="date">1999-04-14</span></div>
-  <div class="movie"><span class="title">Molly's Game</span><span class="date">2017-04-28</span></div>
-  <div class="movie"><span class="title">Challengers</span><span class="date">2024-05-06</span></div>
-  <div class="movie"><span class="title">Unfrosted</span><span class="date">2024-06-17</span></div>
-  <div class="movie"><span class="title">The Kings of Summer</span><span class="date">2013-06-23</span></div>
-  <div class="movie"><span class="title">Hack Your Health: The Secrets of Your Gut</span><span class="date">2024-06-26</span></div>
-  <div class="movie"><span class="title">Poisoned: The Dirty Truth About Your Food</span><span class="date">2023-06-26</span></div>
-  <div class="movie"><span class="title">Monkey Man</span><span class="date">2024-06-27</span></div>
-  <div class="movie"><span class="title">Inside Out 2</span><span class="date">2024-06-29</span></div>
-  <div class="movie"><span class="title">Robots</span><span class="date">2005-07-08</span></div>
-  <div class="movie"><span class="title">High School Musical 2</span><span class="date">2007-07-09</span></div>
-  <div class="movie"><span class="title">House of Wax</span><span class="date">2005-07-10</span></div>
-  <div class="movie"><span class="title">The Sisterhood of the Traveling Pants</span><span class="date">2005-07-15</span></div>
-  <div class="movie"><span class="title">Girl in the Basement</span><span class="date">2021-07-15</span></div>
-  <div class="movie"><span class="title">D.E.B.S.</span><span class="date">2004-07-23</span></div>
-  <div class="movie"><span class="title">Trainspotting</span><span class="date">1996-07-25</span></div>
-  <div class="movie"><span class="title">Eat Pray Love</span><span class="date">2010-07-30</span></div>
-  <div class="movie"><span class="title">Rim of the World</span><span class="date">2019-08-05</span></div>
-  <div class="movie"><span class="title">Freaky Friday</span><span class="date">2003-08-05</span></div>
-  <div class="movie"><span class="title">Star Wars: Episode III – Revenge of the Sith</span><span class="date">2005-08-07</span></div>
-  <div class="movie"><span class="title">Cuckoo</span><span class="date">2024-08-19</span></div>
-  <div class="movie"><span class="title">Spirit of the Peaks</span><span class="date">2021-08-25</span></div>
-  <div class="movie"><span class="title">50 First Dates</span><span class="date">2004-08-28</span></div>
-  <div class="movie"><span class="title">Beetlejuice</span><span class="date">1988-09-09</span></div>
-  <div class="movie"><span class="title">Serial Mom</span><span class="date">1994-09-15</span></div>
-  <div class="movie"><span class="title">Beetlejuice Beetlejuice</span><span class="date">2024-09-21</span></div>
-  <div class="movie"><span class="title">The Incredibly True Adventure of Two Girls in Love</span><span class="date">1995-09-24</span></div>
-  <div class="movie"><span class="title">Practical Magic</span><span class="date">1998-09-24</span></div>
-  <div class="movie"><span class="title">10 Things I Hate About You</span><span class="date">1999-09-28</span></div>
-  <div class="movie"><span class="title">Us</span><span class="date">2019-09-30</span></div>
-  <div class="movie"><span class="title">Untold: Hope Solo vs. U.S. Soccer</span><span class="date">2024-09-30</span></div>
-  <div class="movie"><span class="title">(500) Days of Summer</span><span class="date">2009-10-01</span></div>
-  <div class="movie"><span class="title">Am I OK?</span><span class="date">2022-10-03</span></div>
-  <div class="movie"><span class="title">I Saw the TV Glow</span><span class="date">2024-10-06</span></div>
-  <div class="movie"><span class="title">The Spectacular Now</span><span class="date">2013-10-09</span></div>
-  <div class="movie"><span class="title">Escape from New York</span><span class="date">1981-10-13</span></div>
-  <div class="movie"><span class="title">What Makes a Family</span><span class="date">2001-10-24</span></div>
-  <div class="movie"><span class="title">Dead Poets Society</span><span class="date">1989-10-29</span></div>
-  <div class="movie"><span class="title">Ellen DeGeneres: For Your Approval</span><span class="date">2024-10-29</span></div>
-  <div class="movie"><span class="title">Sing: Thriller</span><span class="date">2024-10-29</span></div>
-  <div class="movie"><span class="title">Time Cut</span><span class="date">2024-11-07</span></div>
-  <div class="movie"><span class="title">Over the Hedge</span><span class="date">2006-11-07</span></div>
-  <div class="movie"><span class="title">My Old Ass</span><span class="date">2024-11-17</span></div>
-  <div class="movie"><span class="title">Buy Now! The Shopping Conspiracy</span><span class="date">2024-11-21</span></div>
-  <div class="movie"><span class="title">Rez Ball</span><span class="date">2024-12-01</span></div>
-  <div class="movie"><span class="title">Afraid</span><span class="date">2024-12-03</span></div>
-  <div class="movie"><span class="title">The Year Without a Santa Claus</span><span class="date">1974-12-07</span></div>
-  <div class="movie"><span class="title">The Chronicles of Narnia: The Lion, the Witch and the Wardrobe</span><span class="date">2005-12-10</span></div>
-  <div class="movie"><span class="title">That Christmas</span><span class="date">2024-12-10</span></div>
-  <div class="movie"><span class="title">Four Christmases</span><span class="date">2008-12-12</span></div>
-  <div class="movie"><span class="title">Elf</span><span class="date">2003-12-15</span></div>
-  <div class="movie"><span class="title">Hot Frosty</span><span class="date">2024-12-16</span></div>
-  <div class="movie"><span class="title">Zathura: A Space Adventure</span><span class="date">2005-12-16</span></div>
-  <div class="movie"><span class="title">Wrong Turn</span><span class="date">2003-12-18</span></div>
-  <div class="movie"><span class="title">A Christmas Story</span><span class="date">1983-12-28</span></div>
-  <div class="movie"><span class="title">High School Musical 3: Senior Year</span><span class="date">2008-12-28</span></div>
-  <div class="movie"><span class="title">Gladiator II</span><span class="date">2024-12-31</span></div>
-  <div class="movie"><span class="title">Happy Feet</span><span class="date">2006-01-03</span></div>
-  <div class="movie"><span class="title">Brokeback Mountain</span><span class="date">2005-01-03</span></div>
-  <div class="movie"><span class="title">Mars Attacks!</span><span class="date">1996-01-06</span></div>
-  <div class="movie"><span class="title">Exhibit A</span><span class="date">2007-01-07</span></div>
-  <div class="movie"><span class="title">Diary of a Wimpy Kid: Dog Days</span><span class="date">2012-01-08</span></div>
-  <div class="movie"><span class="title">Best in Show</span><span class="date">2000-01-16</span></div>
-  <div class="movie"><span class="title">Letters to Juliet</span><span class="date">2010-02-03</span></div>
-  <div class="movie"><span class="title">Flipped</span><span class="date">2010-02-07</span></div>
-  <div class="movie"><span class="title">Crossword Mysteries: A Puzzle to Die For</span><span class="date">2019-02-10</span></div>
-  <div class="movie"><span class="title">Bridget Jones's Diary</span><span class="date">2001-02-16</span></div>
-  <div class="movie"><span class="title">Kneecap</span><span class="date">2024-02-24</span></div>
-  <div class="movie"><span class="title">Honey, I Shrunk the Kids</span><span class="date">1989-03-04</span></div>
-  <div class="movie"><span class="title">The Brutalist</span><span class="date">2024-03-10</span></div>
-  <div class="movie"><span class="title">Cheaper by the Dozen</span><span class="date">2003-03-28</span></div>
-  <div class="movie"><span class="title">Death of a Unicorn</span><span class="date">2025-03-30</span></div>
-  <div class="movie"><span class="title">Sugarcane</span><span class="date">2024-04-01</span></div>
-  <div class="movie"><span class="title">Mystic Pizza</span><span class="date">1988-04-03</span></div>
-  <div class="movie"><span class="title">Public Enemies</span><span class="date">2009-04-07</span></div>
-  <div class="movie"><span class="title">Pretty Woman</span><span class="date">1990-04-10</span></div>
-  <div class="movie"><span class="title">Elephant</span><span class="date">2003-04-11</span></div>
-  <div class="movie"><span class="title">National Anthem</span><span class="date">2023-04-14</span></div>
-  <div class="movie"><span class="title">Final Destination 3</span><span class="date">2006-04-21</span></div>
-  <div class="movie"><span class="title">Queer</span><span class="date">2024-04-21</span></div>
-  <div class="movie"><span class="title">An Accidental Life</span><span class="date">2022-04-24</span></div>
-  <div class="movie"><span class="title">Moana 2</span><span class="date">2024-04-24</span></div>
-  <div class="movie"><span class="title">Twisters</span><span class="date">2024-04-28</span></div>
-  <div class="movie"><span class="title">SLC Punk</span><span class="date">1998-04-30</span></div>
-  <div class="movie"><span class="title">Racing Stripes</span><span class="date">2005-05-04</span></div>
-  <div class="movie"><span class="title">Charlie's Angels</span><span class="date">2000-05-12</span></div>
-  <div class="movie"><span class="title">13 Going on 30</span><span class="date">2004-05-12</span></div>
-  <div class="movie"><span class="title">Murder by Numbers</span><span class="date">2002-05-12</span></div>
-  <div class="movie"><span class="title">Saved!</span><span class="date">2004-05-17</span></div>
-  <div class="movie"><span class="title">Sinners</span><span class="date">2025-05-20</span></div>
-  <div class="movie"><span class="title">Cars 3</span><span class="date">2017-05-23</span></div>
-  <div class="movie"><span class="title">National Treasure</span><span class="date">2004-06-01</span></div>
-  <div class="movie"><span class="title">Den of Thieves</span><span class="date">2018-06-01</span></div>
-  <div class="movie"><span class="title">Wicked Little Letters</span><span class="date">2023-06-16</span></div>
-  <div class="movie"><span class="title">Catwoman</span><span class="date">2004-06-23</span></div>
-  <div class="movie"><span class="title">Geography Club</span><span class="date">2013-06-23</span></div>
-  <div class="movie"><span class="title">Don't Tell a Soul</span><span class="date">2020-07-07</span></div>
-  <div class="movie"><span class="title">On Swift Horses</span><span class="date">2024-07-07</span></div>
-  <div class="movie"><span class="title">Badhaai Do</span><span class="date">2022-07-09</span></div>
-  <div class="movie"><span class="title">Killing Ground</span><span class="date">2016-07-16</span></div>
-  <div class="movie"><span class="title">Sally</span><span class="date">2025-07-16</span></div>
-  <div class="movie"><span class="title">Superman</span><span class="date">2025-07-23</span></div>
-  <div class="movie"><span class="title">Freakier Friday</span><span class="date">2025-08-13</span></div>
-  <div class="movie"><span class="title">Prometheus</span><span class="date">2012-08-21</span></div>
-  <div class="movie"><span class="title">2 Fast 2 Furious</span><span class="date">2003-08-23</span></div>
-  <div class="movie"><span class="title">The Perks of Being a Wallflower</span><span class="date">2012-08-24</span></div>
-  <div class="movie"><span class="title">The Fast and the Furious</span><span class="date">2001-08-25</span></div>
-  <div class="movie"><span class="title">The Turbo Charged Prelude for 2 Fast 2 Furious</span><span class="date">2003-08-27</span></div>
-  <div class="movie"><span class="title">The Fast and the Furious: Tokyo Drift</span><span class="date">2006-08-27</span></div>
-  <div class="movie"><span class="title">28 Years Later</span><span class="date">2025-09-24</span></div>
-  <div class="movie"><span class="title">Friday Night Lights</span><span class="date">2004-09-25</span></div>
-  <div class="movie"><span class="title">Weird Science</span><span class="date">1985-09-25</span></div>
-  <div class="movie"><span class="title">TRON: Ares</span><span class="date">2025-10-21</span></div>
-  <div class="movie"><span class="title">Twilight</span><span class="date">2008-10-22</span></div>
-  <div class="movie"><span class="title">The Twilight Saga: New Moon</span><span class="date">2009-10-23</span></div>
-  <div class="movie"><span class="title">Monster House</span><span class="date">2006-10-27</span></div>
-  <div class="movie"><span class="title">The Twilight Saga: Eclipse</span><span class="date">2010-10-27</span></div>
-  <div class="movie"><span class="title">Life As We Know It</span><span class="date">2010-10-30</span></div>
-  <div class="movie"><span class="title">The Proposal</span><span class="date">2009-11-06</span></div>
-  <div class="movie"><span class="title">Jurassic World Rebirth</span><span class="date">2025-11-17</span></div>
-  <div class="movie"><span class="title">Wicked: For Good</span><span class="date">2025-11-28</span></div>
-  <div class="movie"><span class="title">The Twilight Saga: Breaking Dawn – Part 1</span><span class="date">2011-11-29</span></div>
-  <div class="movie"><span class="title">The Twilight Saga: Breaking Dawn – Part 2</span><span class="date">2012-11-29</span></div>
-  <div class="movie"><span class="title">All the Empty Rooms</span><span class="date">2025-12-08</span></div>
-  <div class="movie"><span class="title">The Tangerine Bear: Home in Time for Christmas!</span><span class="date">2000-12-17</span></div>
-  <div class="movie"><span class="title">Zootopia 2</span><span class="date">2025-12-22</span></div>
-  <div class="movie"><span class="title">The Merry Gentlemen</span><span class="date">2024-12-25</span></div>
-  <div class="movie"><span class="title">Caddyshack</span><span class="date">1980-01-01</span></div>
-  <div class="movie"><span class="title">Stranger Things 5: The Finale</span><span class="date">2025-01-02</span></div>
-  <div class="movie"><span class="title">Confessions of a Teenage Drama Queen</span><span class="date">2004-01-11</span></div>
-  <div class="movie"><span class="title">How to Lose a Guy in 10 Days</span><span class="date">2003-01-23</span></div>
-  <div class="movie"><span class="title">The Devil Wears Prada</span><span class="date">2006-03-01</span></div>">Back to Home</a>
+    <!-- Left flame -->
+    <div class="flame left" aria-hidden="true">
+      <svg width="40" height="160" viewBox="0 0 40 160" xmlns="http://www.w3.org/2000/svg" >
+        <path d="M20 160 C30 130 25 110 32 80 C24 60 35 45 18 20 C12 10 18 0 20 10 C25 20 17 45 20 60 C10 90 5 120 20 160Z"/>
+      </svg>
+    </div>
+
+    <!-- Right flame -->
+    <div class="flame right" aria-hidden="true">
+      <svg width="40" height="160" viewBox="0 0 40 160" xmlns="http://www.w3.org/2000/svg" >
+        <path d="M20 160 C30 130 25 110 32 80 C24 60 35 45 18 20 C12 10 18 0 20 10 C25 20 17 45 20 60 C10 90 5 120 20 160Z"/>
+      </svg>
+    </div>
+
+    <!-- Movie list -->
+    <div class="movie-list">
+      <div class="movie"><span class="title">Uncle Frank</span><span class="date">2021-09-25</span></div>
+      <div class="movie"><span class="title">Birds of Paradise</span><span class="date">2021-09-25</span></div>
+      <div class="movie"><span class="title">Hocus Pocus</span><span class="date">2021-10-02</span></div>
+      <div class="movie"><span class="title">No Time to Die</span><span class="date">2021-10-17</span></div>
+      <div class="movie"><span class="title">Dune</span><span class="date">2021-10-29</span></div>
+      <div class="movie"><span class="title">Level 16</span><span class="date">2021-10-29</span></div>
+      <div class="movie"><span class="title">Squid Game</span><span class="date">2021-10-29</span></div>
+      <div class="movie"><span class="title">Don't Look Up</span><span class="date">2021-12-28</span></div>
+      <div class="movie"><span class="title">Giant Little Ones</span><span class="date">2021-12-29</span></div>
+      <div class="movie"><span class="title">Wrong Turn</span><span class="date">2021-12-29</span></div>
+      <div class="movie"><span class="title">Ellie and Abbie (and Ellie's Dead Aunt)</span><span class="date">2021-12-29</span></div>
+      <div class="movie"><span class="title">All Summers End</span><span class="date">2021-12-29</span></div>
+      <div class="movie"><span class="title">Scream</span><span class="date">2022-01-16</span></div>
+      <div class="movie"><span class="title">Alive</span><span class="date">2022-01-16</span></div>
+      <div class="movie"><span class="title">Love and Monsters</span><span class="date">2022-01-16</span></div>
+      <div class="movie"><span class="title">Cop Car</span><span class="date">2022-01-18</span></div>
+      <div class="movie"><span class="title">Underwater</span><span class="date">2022-02-06</span></div>
+      <div class="movie"><span class="title">Sorority Wars</span><span class="date">2022-02-12</span></div>
+      <div class="movie"><span class="title">Fresh</span><span class="date">2022-03-27</span></div>
+      <div class="movie"><span class="title">The Texas Chainsaw Massacre</span><span class="date">2022-03-27</span></div>
+      <div class="movie"><span class="title">The Rules of Attraction</span><span class="date">2022-03-27</span></div>
+      <div class="movie"><span class="title">The Texas Chainsaw Massacre: The Beginning</span><span class="date">2022-03-28</span></div>
+      <div class="movie"><span class="title">At Last</span><span class="date">2022-03-28</span></div>
+      <div class="movie"><span class="title">Bend It Like Beckham</span><span class="date">2022-04-14</span></div>
+      <div class="movie"><span class="title">Shiva Baby</span><span class="date">2022-04-14</span></div>
+      <div class="movie"><span class="title">Love, Classified</span><span class="date">2022-04-25</span></div>
+      <div class="movie"><span class="title">Crush</span><span class="date">2022-04-30</span></div>
+      <div class="movie"><span class="title">My First Summer</span><span class="date">2022-05-06</span></div>
+      <div class="movie"><span class="title">Benedetta</span><span class="date">2022-05-21</span></div>
+      <div class="movie"><span class="title">Wild Things</span><span class="date">2022-05-22</span></div>
+      <div class="movie"><span class="title">Everything Everywhere All at Once</span><span class="date">2022-05-24</span></div>
+      <div class="movie"><span class="title">Prisoners</span><span class="date">2022-06-07</span></div>
+      <div class="movie"><span class="title">When I Knew</span><span class="date">2022-06-09</span></div>
+      <div class="movie"><span class="title">Irma Vep</span><span class="date">2022-06-09</span></div>
+      <div class="movie"><span class="title">Nobody Sleeps in the Woods Tonight</span><span class="date">2022-06-10</span></div>
+      <div class="movie"><span class="title">Choose or Die</span><span class="date">2022-07-10</span></div>
+      <div class="movie"><span class="title">You Can Live Forever</span><span class="date">2022-07-18</span></div>
+      <div class="movie"><span class="title">Mrs. Harris Goes to Paris</span><span class="date">2022-07-18</span></div>
+      <div class="movie"><span class="title">1BR</span><span class="date">2022-07-25</span></div>
+      <div class="movie"><span class="title">Sleepers</span><span class="date">2022-08-03</span></div>
+      <div class="movie"><span class="title">Ocean's Eight</span><span class="date">2022-08-06</span></div>
+      <div class="movie"><span class="title">The Girl Next Door</span><span class="date">2022-08-11</span></div>
+      <div class="movie"><span class="title">Bodies Bodies Bodies</span><span class="date">2022-08-20</span></div>
+      <div class="movie"><span class="title">Where the Crawdads Sing</span><span class="date">2022-08-22</span></div>
+      <div class="movie"><span class="title">12 Feet Deep</span><span class="date">2022-08-23</span></div>
+      <div class="movie"><span class="title">Coming Home in the Dark</span><span class="date">2022-09-02</span></div>
+      <div class="movie"><span class="title">The Retreat</span><span class="date">2022-09-12</span></div>
+      <div class="movie"><span class="title">Goat</span><span class="date">2022-09-12</span></div>
+      <div class="movie"><span class="title">Do Revenge</span><span class="date">2022-09-17</span></div>
+      <div class="movie"><span class="title">Don't Worry Darling</span><span class="date">2022-09-24</span></div>
+      <div class="movie"><span class="title">High School Musical</span><span class="date">2006-09-26</span></div>
+      <div class="movie"><span class="title">Blonde</span><span class="date">2022-09-30</span></div>
+      <div class="movie"><span class="title">Deliverance</span><span class="date">1972-10-01</span></div>
+      <div class="movie"><span class="title">Bros</span><span class="date">2022-10-14</span></div>
+      <div class="movie"><span class="title">Super Hot</span><span class="date">2021-10-14</span></div>
+      <div class="movie"><span class="title">Vampyros Lesbos</span><span class="date">1971-10-14</span></div>
+      <div class="movie"><span class="title">Call Jane</span><span class="date">2022-11-13</span></div>
+      <div class="movie"><span class="title">Falling for Christmas</span><span class="date">2022-11-13</span></div>
+      <div class="movie"><span class="title">Avatar: The Way of Water</span><span class="date">2022-12-20</span></div>
+      <div class="movie"><span class="title">Remember the Daze</span><span class="date">2007-12-31</span></div>
+      <div class="movie"><span class="title">White Noise</span><span class="date">2023-01-10</span></div>
+      <div class="movie"><span class="title">The Messenger: The Story of Joan of Arc</span><span class="date">1999-02-14</span></div>
+      <div class="movie"><span class="title">The Black Phone</span><span class="date">2021-02-27</span></div>
+      <div class="movie"><span class="title">Cars</span><span class="date">2006-03-03</span></div>
+      <div class="movie"><span class="title">The Opposite of Sex</span><span class="date">1998-03-03</span></div>
+      <div class="movie"><span class="title">Scream VI</span><span class="date">2023-03-12</span></div>
+      <div class="movie"><span class="title">Cocaine Bear</span><span class="date">2023-03-16</span></div>
+      <div class="movie"><span class="title">The Hunger Games</span><span class="date">2012-03-23</span></div>
+      <div class="movie"><span class="title">The Hunger Games: Catching Fire</span><span class="date">2013-03-23</span></div>
+      <div class="movie"><span class="title">The Hunger Games: Mockingjay – Part 1</span><span class="date">2014-03-29</span></div>
+      <div class="movie"><span class="title">Motocrossed!</span><span class="date">2001-03-29</span></div>
+      <div class="movie"><span class="title">Dungeons & Dragons: Honor Among Thieves</span><span class="date">2023-04-12</span></div>
+      <div class="movie"><span class="title">Empire Records</span><span class="date">1995-04-26</span></div>
+      <div class="movie"><span class="title">The Hunt</span><span class="date">2020-04-29</span></div>
+      <div class="movie"><span class="title">Do Not Reply</span><span class="date">2019-04-29</span></div>
+      <div class="movie"><span class="title">Cadet Kelly</span><span class="date">2002-05-13</span></div>
+      <div class="movie"><span class="title">Are You There God? It's Me, Margaret.</span><span class="date">2023-05-13</span></div>
+      <div class="movie"><span class="title">Rise of the Planet of the Apes</span><span class="date">2011-05-22</span></div>
+      <div class="movie"><span class="title">Jennifer's Body</span><span class="date">2009-05-29</span></div>
+      <div class="movie"><span class="title">The Thirteenth Year</span><span class="date">1999-05-29</span></div>
+      <div class="movie"><span class="title">Saturday Night Fever</span><span class="date">1977-05-29</span></div>
+      <div class="movie"><span class="title">The Lizzie McGuire Movie</span><span class="date">2003-06-13</span></div>
+      <div class="movie"><span class="title">The Mist</span><span class="date">2007-06-13</span></div>
+      <div class="movie"><span class="title">Spider-Man: Across the Spider-Verse</span><span class="date">2023-06-15</span></div>
+      <div class="movie"><span class="title">The Princess Diaries 2: Royal Engagement</span><span class="date">2004-06-19</span></div>
+      <div class="movie"><span class="title">The Aristocats</span><span class="date">1970-06-19</span></div>
+      <div class="movie"><span class="title">No Hard Feelings</span><span class="date">2023-06-27</span></div>
+      <div class="movie"><span class="title">Lucky Fish</span><span class="date">2022-07-15</span></div>
+      <div class="movie"><span class="title">Barbie</span><span class="date">2023-07-24</span></div>
+      <div class="movie"><span class="title">Mean Girls</span><span class="date">2004-08-08</span></div>
+      <div class="movie"><span class="title">Coraline</span><span class="date">2009-08-16</span></div>
+      <div class="movie"><span class="title">Red, White & Royal Blue</span><span class="date">2023-08-16</span></div>
+      <div class="movie"><span class="title">Bottoms</span><span class="date">2023-09-01</span></div>
+      <div class="movie"><span class="title">No Exit</span><span class="date">2022-09-06</span></div>
+      <div class="movie"><span class="title">The Sweetest Thing</span><span class="date">2002-09-11</span></div>
+      <div class="movie"><span class="title">Home</span><span class="date">2015-09-16</span></div>
+      <div class="movie"><span class="title">The Half of It</span><span class="date">2020-09-16</span></div>
+      <div class="movie"><span class="title">Hannah Gadsby: Nanette</span><span class="date">2018-09-19</span></div>
+      <div class="movie"><span class="title">We the Animals</span><span class="date">2018-09-27</span></div>
+      <div class="movie"><span class="title">Warm Bodies</span><span class="date">2013-09-29</span></div>
+      <div class="movie"><span class="title">6 Balloons</span><span class="date">2018-10-13</span></div>
+      <div class="movie"><span class="title">Looking for Her</span><span class="date">2022-10-21</span></div>
+      <div class="movie"><span class="title">Atlantis: The Lost Empire</span><span class="date">2001-10-31</span></div>
+      <div class="movie"><span class="title">Five Nights at Freddy's</span><span class="date">2023-11-04</span></div>
+      <div class="movie"><span class="title">Matilda</span><span class="date">1996-11-04</span></div>
+      <div class="movie"><span class="title">Hounddog</span><span class="date">2007-11-14</span></div>
+      <div class="movie"><span class="title">Hitch</span><span class="date">2005-11-18</span></div>
+      <div class="movie"><span class="title">The Hunger Games: The Ballad of Songbirds & Snakes</span><span class="date">2023-11-21</span></div>
+      <div class="movie"><span class="title">Stamped from the Beginning</span><span class="date">2023-11-23</span></div>
+      <div class="movie"><span class="title">Genie</span><span class="date">2023-12-10</span></div>
+      <div class="movie"><span class="title">Eileen</span><span class="date">2023-12-13</span></div>
+      <div class="movie"><span class="title">The Grinch</span><span class="date">2018-12-13</span></div>
+      <div class="movie"><span class="title">Men in Black</span><span class="date">1997-12-17</span></div>
+      <div class="movie"><span class="title">The Parent Trap</span><span class="date">1998-12-18</span></div>
+      <div class="movie"><span class="title">Great Expectations</span><span class="date">1998-12-19</span></div>
+      <div class="movie"><span class="title">Serving in Silence - The Margarethe Cammermeyer Story</span><span class="date">1995-12-19</span></div>
+      <div class="movie"><span class="title">The House Bunny</span><span class="date">2008-12-29</span></div>
+      <div class="movie"><span class="title">Wonka</span><span class="date">2023-12-29</span></div>
+      <div class="movie"><span class="title">Saltburn</span><span class="date">2024-01-05</span></div>
+      <div class="movie"><span class="title">Mamma Mia!</span><span class="date">2008-01-07</span></div>
+      <div class="movie"><span class="title">Call Me by Your Name</span><span class="date">2017-01-07</span></div>
+      <div class="movie"><span class="title">Sky High</span><span class="date">2005-01-09</span></div>
+      <div class="movie"><span class="title">Ella Enchanted</span><span class="date">2004-01-15</span></div>
+      <div class="movie"><span class="title">Going to the Mat</span><span class="date">2004-01-24</span></div>
+      <div class="movie"><span class="title">Full Circle</span><span class="date">2023-01-24</span></div>
+      <div class="movie"><span class="title">The Indian in the Cupboard</span><span class="date">1995-01-25</span></div>
+      <div class="movie"><span class="title">Stand by Me</span><span class="date">1986-02-08</span></div>
+      <div class="movie"><span class="title">Harriet</span><span class="date">2019-02-08</span></div>
+      <div class="movie"><span class="title">Mean Girls</span><span class="date">2024-02-15</span></div>
+      <div class="movie"><span class="title">Breaking the Ice</span><span class="date">2022-02-15</span></div>
+      <div class="movie"><span class="title">There's Something About Mary</span><span class="date">1998-02-16</span></div>
+      <div class="movie"><span class="title">Drive-Away Dolls</span><span class="date">2024-02-26</span></div>
+      <div class="movie"><span class="title">Palo Alto</span><span class="date">2013-02-29</span></div>
+      <div class="movie"><span class="title">Blue Jean</span><span class="date">2022-03-05</span></div>
+      <div class="movie"><span class="title">Fried Green Tomatoes</span><span class="date">1991-03-08</span></div>
+      <div class="movie"><span class="title">Damsel</span><span class="date">2024-03-29</span></div>
+      <div class="movie"><span class="title">Love Lies Bleeding</span><span class="date">2024-03-30</span></div>
+      <div class="movie"><span class="title">Madame Web</span><span class="date">2024-04-08</span></div>
+      <div class="movie"><span class="title">Leave the World Behind</span><span class="date">2023-04-12</span></div>
+      <div class="movie"><span class="title">The Iron Claw</span><span class="date">2023-04-12</span></div>
+      <div class="movie"><span class="title">Kill Bill: Vol. 1</span><span class="date">2003-04-13</span></div>
+      <div class="movie"><span class="title">Austin Powers: The Spy Who Shagged Me</span><span class="date">1999-04-14</span></div>
+      <div class="movie"><span class="title">Molly's Game</span><span class="date">2017-04-28</span></div>
+      <div class="movie"><span class="title">Challengers</span><span class="date">2024-05-06</span></div>
+      <div class="movie"><span class="title">Unfrosted</span><span class="date">2024-06-17</span></div>
+      <div class="movie"><span class="title">The Kings of Summer</span><span class="date">2013-06-23</span></div>
+      <div class="movie"><span class="title">Hack Your Health: The Secrets of Your Gut</span><span class="date">2024-06-26</span></div>
+      <div class="movie"><span class="title">Poisoned: The Dirty Truth About Your Food</span><span class="date">2023-06-26</span></div>
+      <div class="movie"><span class="title">Monkey Man</span><span class="date">2024-06-27</span></div>
+      <div class="movie"><span class="title">Inside Out 2</span><span class="date">2024-06-29</span></div>
+      <div class="movie"><span class="title">Robots</span><span class="date">2005-07-08</span></div>
+      <div class="movie"><span class="title">High School Musical 2</span><span class="date">2007-07-09</span></div>
+      <div class="movie"><span class="title">House of Wax</span><span class="date">2005-07-10</span></div>
+      <div class="movie"><span class="title">The Sisterhood of the Traveling Pants</span><span class="date">2005-07-15</span></div>
+      <div class="movie"><span class="title">Girl in the Basement</span><span class="date">2021-07-15</span></div>
+      <div class="movie"><span class="title">D.E.B.S.</span><span class="date">2004-07-23</span></div>
+      <div class="movie"><span class="title">Trainspotting</span><span class="date">1996-07-25</span></div>
+      <div class="movie"><span class="title">Eat Pray Love</span><span class="date">2010-07-30</span></div>
+      <div class="movie"><span class="title">Rim of the World</span><span class="date">2019-08-05</span></div>
+      <div class="movie"><span class="title">Freaky Friday</span><span class="date">2003-08-05</span></div>
+      <div class="movie"><span class="title">Star Wars: Episode III – Revenge of the Sith</span><span class="date">2005-08-07</span></div>
+      <div class="movie"><span class="title">Cuckoo</span><span class="date">2024-08-19</span></div>
+      <div class="movie"><span class="title">Spirit of the Peaks</span><span class="date">2021-08-25</span></div>
+      <div class="movie"><span class="title">50 First Dates</span><span class="date">2004-08-28</span></div>
+      <div class="movie"><span class="title">Beetlejuice</span><span class="date">1988-09-09</span></div>
+      <div class="movie"><span class="title">Serial Mom</span><span class="date">1994-09-15</span></div>
+      <div class="movie"><span class="title">Beetlejuice Beetlejuice</span><span class="date">2024-09-21</span></div>
+      <div class="movie"><span class="title">The Incredibly True Adventure of Two Girls in Love</span><span class="date">1995-09-24</span></div>
+      <div class="movie"><span class="title">Practical Magic</span><span class="date">1998-09-24</span></div>
+      <div class="movie"><span class="title">10 Things I Hate About You</span><span class="date">1999-09-28</span></div>
+      <div class="movie"><span class="title">Us</span><span class="date">2019-09-30</span></div>
+      <div class="movie"><span class="title">Untold: Hope Solo vs. U.S. Soccer</span><span class="date">2024-09-30</span></div>
+      <div class="movie"><span class="title">(500) Days of Summer</span><span class="date">2009-10-01</span></div>
+      <div class="movie"><span class="title">Am I OK?</span><span class="date">2022-10-03</span></div>
+      <div class="movie"><span class="title">I Saw the TV Glow</span><span class="date">2024-10-06</span></div>
+      <div class="movie"><span class="title">The Spectacular Now</span><span class="date">2013-10-09</span></div>
+      <div class="movie"><span class="title">Escape from New York</span><span class="date">1981-10-13</span></div>
+      <div class="movie"><span class="title">What Makes a Family</span><span class="date">2001-10-24</span></div>
+      <div class="movie"><span class="title">Dead Poets Society</span><span class="date">1989-10-29</span></div>
+      <div class="movie"><span class="title">Ellen DeGeneres: For Your Approval</span><span class="date">2024-10-29</span></div>
+      <div class="movie"><span class="title">Sing: Thriller</span><span class="date">2024-10-29</span></div>
+      <div class="movie"><span class="title">Time Cut</span><span class="date">2024-11-07</span></div>
+      <div class="movie"><span class="title">Over the Hedge</span><span class="date">2006-11-07</span></div>
+      <div class="movie"><span class="title">My Old Ass</span><span class="date">2024-11-17</span></div>
+      <div class="movie"><span class="title">Buy Now! The Shopping Conspiracy</span><span class="date">2024-11-21</span></div>
+      <div class="movie"><span class="title">Rez Ball</span><span class="date">2024-12-01</span></div>
+      <div class="movie"><span class="title">Afraid</span><span class="date">2024-12-03</span></div>
+      <div class="movie"><span class="title">The Year Without a Santa Claus</span><span class="date">1974-12-07</span></div>
+      <div class="movie"><span class="title">The Chronicles of Narnia: The Lion, the Witch and the Wardrobe</span><span class="date">2005-12-10</span></div>
+      <div class="movie"><span class="title">That Christmas</span><span class="date">2024-12-10</span></div>
+      <div class="movie"><span class="title">Four Christmases</span><span class="date">2008-12-12</span></div>
+      <div class="movie"><span class="title">Elf</span><span class="date">2003-12-15</span></div>
+      <div class="movie"><span class="title">Hot Frosty</span><span class="date">2024-12-16</span></div>
+      <div class="movie"><span class="title">Zathura: A Space Adventure</span><span class="date">2005-12-16</span></div>
+      <div class="movie"><span class="title">Wrong Turn</span><span class="date">2003-12-18</span></div>
+      <div class="movie"><span class="title">A Christmas Story</span><span class="date">1983-12-28</span></div>
+      <div class="movie"><span class="title">High School Musical 3: Senior Year</span><span class="date">2008-12-28</span></div>
+      <div class="movie"><span class="title">Gladiator II</span><span class="date">2024-12-31</span></div>
+      <div class="movie"><span class="title">Happy Feet</span><span class="date">2006-01-03</span></div>
+      <div class="movie"><span class="title">Brokeback Mountain</span><span class="date">2005-01-06</span></div>
+      <div class="movie"><span class="title">Crouching Tiger, Hidden Dragon</span><span class="date">2000-01-07</span></div>
+      <div class="movie"><span class="title">Coyote Ugly</span><span class="date">2000-01-15</span></div>
+      <div class="movie"><span class="title">Boogie Nights</span><span class="date">1997-01-16</span></div>
+      <div class="movie"><span class="title">Boys Don't Cry</span><span class="date">1999-01-17</span></div>
+      <div class="movie"><span class="title">Bring It On</span><span class="date">2000-01-18</span></div>
+      <div class="movie"><span class="title">City of Angels</span><span class="date">1998-01-19</span></div>
+      <div class="movie"><span class="title">Cruel Intentions</span><span class="date">1999-01-20</span></div>
+      <div class="movie"><span class="title">Dazed and Confused</span><span class="date">1993-01-21</span></div>
+      <div class="movie"><span class="title">Donnie Darko</span><span class="date">2001-01-22</span></div>
+      <div class="movie"><span class="title">Drive</span><span class="date">2011-01-23</span></div>
+      <div class="movie"><span class="title">Empire Records</span><span class="date">1995-01-24</span></div>
+      <div class="movie"><span class="title">Fight Club</span><span class="date">1999-01-25</span></div>
+      <div class="movie"><span class="title">Garden State</span><span class="date">2004-01-26</span></div>
+      <div class="movie"><span class="title">Ghost World</span><span class="date">2001-01-27</span></div>
+      <div class="movie"><span class="title">Grease</span><span class="date">1978-01-28</span></div>
+      <div class="movie"><span class="title">Half Nelson</span><span class="date">2006-01-29</span></div>
+      <div class="movie"><span class="title">Heathers</span><span class="date">1988-01-30</span></div>
+      <div class="movie"><span class="title">High School Musical</span><span class="date">2006-01-31</span></div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

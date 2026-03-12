@@ -54,35 +54,6 @@
       color: black;
     }
 
-    /* CENTER WIDGET (visitor counter + music) */
-    .center-widget {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 240px;
-      background: black;
-      border: 3px solid #00ffff;
-      box-shadow: 0 0 10px #00ffff;
-      padding: 10px;
-      z-index: 900;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .visitor-counter {
-      font-size: 18px;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .music-player {
-      border-top: 2px solid #00ffff;
-      padding-top: 10px;
-      width: 100%;
-    }
-
     /* Container for everything below icons */
     .below-icons {
       display: flex;
@@ -93,16 +64,21 @@
       padding: 20px;
     }
 
-    /* Left Link Box (8008135) */
-    .link-box {
+    /* Shared Box Styling */
+    .content-box {
       width: 90%;
       max-width: 340px;
       background: black;
       border: 5px solid #00ffff;
       box-shadow: 0 0 20px #00ffff, inset 0 0 5px #00ffff;
-      text-align: left;
       padding: 10px;
+      margin: 0 auto;
+      text-align: center;
       overflow: auto;
+    }
+
+    .link-box {
+      text-align: left;
     }
 
     .link-box h2 {
@@ -133,21 +109,21 @@
       color: black;
     }
 
-    /* Retro TV */
-    .tv-video {
-      width: 90%;
-      max-width: 340px;
-      height: 200px;
-      padding: 10px;
-      background: black;
-      border: 5px solid #00ffff;
-      box-shadow: 0 0 20px #00ffff;
-    }
-
+    /* TV box */
     .tv-video iframe {
       width: 100%;
-      height: 100%;
+      height: 200px;
       border: none;
+    }
+
+    /* Visitor counter and music player */
+    .visitor-counter img {
+      display: block;
+      margin: 10px auto;
+    }
+
+    .music-player audio {
+      width: 100%;
     }
 
     /* Skateboard Cat */
@@ -174,8 +150,7 @@
 
     /* Responsive tweaks */
     @media (max-width: 600px) {
-      .link-box,
-      .tv-video {
+      .content-box {
         width: 95%;
         max-width: none;
       }
@@ -228,27 +203,11 @@
 
   </div>
 
-  <!-- Center visitor counter + music player -->
-  <div class="center-widget">
-
-    <div class="visitor-counter">
-      <p>Visitors</p>
-      <img src="https://hitwebcounter.com/counter/counter.php?page=19420542&style=0006&nbdigits=5&type=page&initCount=0">
-    </div>
-
-    <div class="music-player">
-      <audio controls style="width:100%;">
-        <source src="music.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-
-  </div>
-
   <!-- Everything below icons -->
   <div class="below-icons">
 
     <!-- Left Links -->
-    <div class="link-box">
+    <div class="content-box link-box">
       <h2>8008135</h2>
       <ul>
         <li><a href="https://pointerpointer.com/" target="_blank">Pointer Pointer</a></li>
@@ -259,11 +218,24 @@
     </div>
 
     <!-- YouTube TV -->
-    <div class="tv-video">
+    <div class="content-box tv-video">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/iosHzNmVYbA?si=Skmq_SL2KSaWEz1w"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Visitor Counter + Music Player -->
+    <div class="content-box">
+      <div class="visitor-counter">
+        <p>Visitors</p>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=19420542&style=0006&nbdigits=5&type=page&initCount=0">
+      </div>
+      <div class="music-player">
+        <audio controls>
+          <source src="music.mp3" type="audio/mpeg">
+        </audio>
+      </div>
     </div>
 
     <!-- Skateboard Cat -->

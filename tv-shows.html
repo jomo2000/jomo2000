@@ -1,169 +1,221 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>TV Shows</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My TV Shows Collection</title>
+<style>
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: url('tv-room-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
 
-  <style>
-    body {
-      background: black;
-      color: #00ffff;
-      font-family: Courier New, monospace;
-      text-align: center;
-    }
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(50, 25, 0, 0.9);
+  border-bottom: 4px solid #333;
+}
 
-    h1 {
-      font-size: 48px;
-      text-shadow: 0 0 10px cyan;
-    }
+header h1 {
+  font-size: 2.5rem;
+  color: #cfc9a0;
+  text-shadow: 2px 2px #000;
+}
 
-    h2 {
-      font-size: 28px;
-      text-shadow: 0 0 5px cyan;
-      margin-top: 40px;
-    }
+/* Grid of TV shows */
+.tv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    p {
-      font-size: 18px;
-      margin: 10px 20px;
-    }
+/* Individual TV show tile */
+.tv-show {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
 
-    img {
-      border: 2px solid #0ff;
-      padding: 4px;
-      background: black;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      width: 300px;
-      height: auto;
-    }
+.tv-show img {
+  width: 100%;
+  display: block;
+  border: 8px solid #333; 
+  border-radius: 15px;
+  box-shadow: inset 0 0 10px #222, 0 4px 10px rgba(0,0,0,0.5);
+}
 
-    a {
-      color: #00ffff;
-      text-decoration: none;
-      border: 1px solid #0ff;
-      padding: 2px 4px;
-    }
+.tv-show:hover {
+  transform: scale(1.05);
+}
 
-    a:hover {
-      background: #0ff;
-      color: black;
-    }
+/* Expanded show info */
+.show-info {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: rgba(0,0,0,0.8);
+  border: 3px solid #556B2F;
+  border-radius: 10px;
+  color: #cfc9a0;
+}
 
-    .tv-show {
-      border: 3px solid #0ff;
-      box-shadow: 0 0 10px #0ff, inset 0 0 5px #0ff;
-      padding: 15px;
-      margin: 30px auto;
-      width: 600px;
-      text-align: left;
-      background: black;
-    }
+.show-info h3 {
+  margin-top: 0;
+  color: #00ffff;
+}
 
-    .tv-show h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 24px;
-      text-shadow: 0 0 5px #0ff;
-    }
+.show-info p {
+  margin: 5px 0;
+}
 
-    .tv-show p {
-      margin-bottom: 15px;
-    }
+/* Minimize button */
+.minimize-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #556B2F;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
 
-    .tv-show img {
-      display: block;
-      margin: 10px 0;
-    }
+.minimize-btn:hover {
+  background-color: #6B8E23;
+}
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin-top: 30px;
-      text-align: center;
-    }
+/* TV remote GIF */
+.remote-gif {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+  z-index: 100;
+  cursor: pointer;
+}
 
-    ul li {
-      margin-bottom: 10px;
-    }
-  </style>
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #556B2F;
+  border-radius: 6px;
+}
+
+/* Episode/season input style */
+.show-info input {
+  width: 60px;
+  padding: 2px 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #556B2F;
+  background-color: #222;
+  color: #cfc9a0;
+}
+
+/* Posts container */
+.posts {
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: 2px dotted #00ffcc;
+}
+
+.posts p {
+  margin: 5px 0;
+  background-color: rgba(255,255,255,0.05);
+  padding: 5px;
+  border-radius: 5px;
+}
+</style>
 </head>
-
 <body>
 
-  <h1>TV Shows</h1>
-  <p>Explore my favorite TV shows and read all about them!</p>
+<header>
+  <h1>My TV Shows Collection</h1>
+</header>
 
-  <!-- --- TV Show Slots --- -->
+<section class="tv-grid">
 
-  <div class="tv-show">
-    <h3>TV Show 1 Title</h3>
-    <p>Write a passage or description about TV Show 1 here.</p>
-    <img src="tvshow1-image.png" alt="TV Show 1">
-    <!-- Add more posts for TV Show 1 below -->
+  <!-- TV Show Example -->
+  <div class="tv-show" data-show-name="Show 1">
+    <img src="show1.png" alt="Show 1">
+    <div class="show-info">
+      <h3>Show 1</h3>
+      <p>Rating: ⭐⭐⭐⭐☆</p>
+      <p>Episode: <input type="text" value="3"> / Season: <input type="text" value="2"></p>
+      <div class="posts" data-posts='[
+        "Post 1: Loved this episode because of the plot twist!",
+        "Post 2: Funny moment at minute 10 was hilarious!",
+        "Post 3: New character introduction was awesome."
+      ]'>
+      </div>
+      <button class="minimize-btn">Minimize</button>
+    </div>
   </div>
 
-  <div class="tv-show">
-    <h3>TV Show 2 Title</h3>
-    <p>Write a passage or description about TV Show 2 here.</p>
-    <img src="tvshow2-image.png" alt="TV Show 2">
+  <div class="tv-show" data-show-name="Show 2">
+    <img src="show2.png" alt="Show 2">
+    <div class="show-info">
+      <h3>Show 2</h3>
+      <p>Rating: ⭐⭐⭐☆☆</p>
+      <p>Episode: <input type="text" value="1"> / Season: <input type="text" value="1"></p>
+      <div class="posts" data-posts='[
+        "Post 1: Interesting plot twist in this episode."
+      ]'>
+      </div>
+      <button class="minimize-btn">Minimize</button>
+    </div>
   </div>
 
-  <div class="tv-show">
-    <h3>TV Show 3 Title</h3>
-    <p>Write a passage or description about TV Show 3 here.</p>
-    <img src="tvshow3-image.png" alt="TV Show 3">
-  </div>
+  <!-- Add more shows by copying tv-show div and updating data-posts -->
+  
+</section>
 
-  <div class="tv-show">
-    <h3>TV Show 4 Title</h3>
-    <p>Write a passage or description about TV Show 4 here.</p>
-    <img src="tvshow4-image.png" alt="TV Show 4">
-  </div>
+<img class="remote-gif" src="remote.gif" alt="TV Remote">
 
-  <div class="tv-show">
-    <h3>TV Show 5 Title</h3>
-    <p>Write a passage or description about TV Show 5 here.</p>
-    <img src="tvshow5-image.png" alt="TV Show 5">
-  </div>
+<script>
+// Expand/minimize functionality
+document.querySelectorAll('.tv-show').forEach(show => {
+  const img = show.querySelector('img');
+  const info = show.querySelector('.show-info');
+  const minimizeBtn = show.querySelector('.minimize-btn');
+  const postsDiv = show.querySelector('.posts');
 
-  <div class="tv-show">
-    <h3>TV Show 6 Title</h3>
-    <p>Write a passage or description about TV Show 6 here.</p>
-    <img src="tvshow6-image.png" alt="TV Show 6">
-  </div>
+  // Load posts automatically from data-posts attribute
+  const postsArray = JSON.parse(postsDiv.getAttribute('data-posts'));
+  postsArray.forEach(post => {
+    const p = document.createElement('p');
+    p.textContent = post;
+    postsDiv.appendChild(p);
+  });
 
-  <div class="tv-show">
-    <h3>TV Show 7 Title</h3>
-    <p>Write a passage or description about TV Show 7 here.</p>
-    <img src="tvshow7-image.png" alt="TV Show 7">
-  </div>
+  // Show info on click
+  img.addEventListener('click', () => {
+    info.style.display = 'block';
+  });
 
-  <div class="tv-show">
-    <h3>TV Show 8 Title</h3>
-    <p>Write a passage or description about TV Show 8 here.</p>
-    <img src="tvshow8-image.png" alt="TV Show 8">
-  </div>
-
-  <div class="tv-show">
-    <h3>TV Show 9 Title</h3>
-    <p>Write a passage or description about TV Show 9 here.</p>
-    <img src="tvshow9-image.png" alt="TV Show 9">
-  </div>
-
-  <div class="tv-show">
-    <h3>TV Show 10 Title</h3>
-    <p>Write a passage or description about TV Show 10 here.</p>
-    <img src="tvshow10-image.png" alt="TV Show 10">
-  </div>
-
-  <!-- --- Navigation links --- -->
-  <ul>
-    <li><a href="index.html">Back to Home</a></li>
-    <li><a href="music-videos.html">Go to Music Videos Page</a></li>
-    <li><a href="movies.html">Go to Movies Page</a></li>
-  </ul>
+  // Minimize
+  minimizeBtn.addEventListener('click', () => {
+    info.style.display = 'none';
+  });
+});
+</script>
 
 </body>
-
 </html>

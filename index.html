@@ -105,23 +105,25 @@ h1{
   border:none;
 }
 
-/* Left Link Box */
+/* Left Link Box (8008135) */
 
 .link-box{
   position:fixed;
   top:50%;
   left:20px;
   transform:translateY(-50%);
-  width:200px;
+  width:340px;        /* same as TV */
+  height:200px;       /* same as TV */
   padding:10px;
   background:black;
-  border:3px solid #00ffff;
-  box-shadow:0 0 10px #00ffff;
+  border:5px solid #00ffff; /* match TV border */
+  box-shadow:0 0 20px #00ffff, inset 0 0 5px #00ffff;
   text-align:left;
+  overflow:auto;      /* scroll if content exceeds height */
 }
 
 .link-box h2{
-  font-size:20px;
+  font-size:22px;
   margin-bottom:10px;
 }
 
@@ -140,6 +142,7 @@ h1{
   border:1px solid #0ff;
   padding:2px 4px;
   display:block;
+  font-size:16px;
 }
 
 .link-box a:hover{
@@ -254,7 +257,7 @@ h1{
 
 <div class="tv-video">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kc78arfcmRo?si=M3ftAHJYyuFEajmB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iosHzNmVYbA?si=Skmq_SL2KSaWEz1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </div>
 

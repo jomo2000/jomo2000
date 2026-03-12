@@ -1,78 +1,162 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Webkinz</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Webkinz Collection</title>
 <style>
-
-body{
-background:black;
-color:#00ffff;
-font-family:Courier New, monospace;
-text-align:center;
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to bottom, #f0c0ff, #80dfff);
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-h1{
-font-size:48px;
-text-shadow:0 0 10px cyan;
+header {
+  background: #ffcc00;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 5px solid #ff00ff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.webkinz{
-border:3px solid #00ffff;
-box-shadow:0 0 10px #00ffff;
-padding:20px;
-margin:40px auto;
-width:650px;
-text-align:left;
+header h1 {
+  font-size: 2.5rem;
+  color: #800080;
+  text-shadow: 2px 2px #fff;
+  margin: 0;
 }
 
-.webkinz img{
-width:200px;
-border:2px solid #00ffff;
+/* Top row of Webkinz */
+.webkinz-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 10px;
+  background: #ffeeaa;
+  border-bottom: 4px dotted #ff00ff;
 }
 
-a{
-color:#00ffff;
-border:1px solid #00ffff;
-padding:3px 6px;
-text-decoration:none;
+.webkinz-icons .webkinz {
+  text-align: center;
 }
 
-a:hover{
-background:#00ffff;
-color:black;
+.webkinz-icons img {
+  width: 120px;
+  height: auto;
+  border: 3px solid #ff00ff;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
 }
 
+.webkinz-icons img:hover {
+  transform: scale(1.2);
+}
+
+.webkinz-icons p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ff0066;
+}
+
+/* Blog section */
+.blog {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Each blog post snippet */
+.blog-post {
+  background: #fff0ff;
+  border: 3px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: linear-gradient(to right, #ff00ff, #00ffff, #ffcc00);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.blog-post:hover {
+  transform: scale(1.02);
+  box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
+}
+
+.blog-post img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ff00ff;
+}
+
+.blog-post p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #660066;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #ffcc00;
+  border-top: 4px solid #ff00ff;
+  font-weight: bold;
+  color: #800080;
+}
 </style>
-
 </head>
-
 <body>
 
-<h1>Webkinz</h1>
+<header>
+  <h1>My Webkinz Collection</h1>
+</header>
 
-<div class="webkinz">
-<h2>Webkinz Post 1</h2>
-<p>Write about your Webkinz memories here.</p>
-<img src="IMAGE-LINK-HERE">
-</div>
+<section class="webkinz-icons">
+  <div class="webkinz">
+    <img src="webkinz paris hilton.png" alt="Webkinz Paris Hilton">
+    <p>Paris Hilton</p>
+  </div>
+  <div class="webkinz">
+    <img src="webkinz hoof hefner.png" alt="Webkinz Hoof Hefner">
+    <p>Hoof Hefner</p>
+  </div>
+  <div class="webkinz">
+    <img src="webkinz freddie mercury.png" alt="Webkinz Freddie Mercury">
+    <p>Freddie Mercury</p>
+  </div>
+  <div class="webkinz">
+    <img src="webkinz vince staples.png" alt="Webkinz Vince Staples">
+    <p>Vince Staples</p>
+  </div>
+</section>
 
-<div class="webkinz">
-<h2>Webkinz Post 2</h2>
-<p>Write about your Webkinz memories here.</p>
-<img src="IMAGE-LINK-HERE">
-</div>
+<section class="blog">
 
-<div class="webkinz">
-<h2>Webkinz Post 3</h2>
-<p>Write about your Webkinz memories here.</p>
-<img src="IMAGE-LINK-HERE">
-</div>
+  <!-- COPY-PASTE SNIPPET START -->
+  <div class="blog-post">
+    <img src="example-post1.png" alt="Example Post 1">
+    <p>This is an example blog post about my Webkinz adventures! You can write a paragraph here describing your fun day.</p>
+  </div>
+  <!-- COPY-PASTE SNIPPET END -->
 
-<br>
-<a href="index.html">Back to Home</a>
+  <!-- COPY-PASTE SNIPPET START -->
+  <div class="blog-post">
+    <img src="example-post2.png" alt="Example Post 2">
+    <p>Another example post! Just copy this snippet, change the image and text, and it will automatically match the retro style.</p>
+  </div>
+  <!-- COPY-PASTE SNIPPET END -->
+
+</section>
+
+<footer>
+  © 2026 My Webkinz Blog
+</footer>
 
 </body>
-
 </html>

@@ -7,159 +7,164 @@
 <style>
 
 body{
-background:black;
-color:#00ffff;
-font-family:Courier New, monospace;
-text-align:center;
+  background:black;
+  color:#00ffff;
+  font-family:Courier New, monospace;
+  text-align:center;
 }
 
 h1{
-font-size:48px;
-text-shadow:0 0 10px cyan;
+  font-size:48px;
+  text-shadow:0 0 10px cyan;
 }
 
 /* Desktop Icons */
 
 .desktop-icons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:40px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:40px;
 }
 
 .icon{
-width:120px;
-margin:20px;
-text-align:center;
-color:#00ffff;
-text-decoration:none;
-font-size:16px;
+  width:120px;
+  margin:20px;
+  text-align:center;
+  color:#00ffff;
+  text-decoration:none;
+  font-size:16px;
 }
 
 .icon img{
-width:64px;
-height:64px;
-display:block;
-margin:0 auto 10px;
-border:2px solid #00ffff;
-padding:4px;
-background:black;
+  width:64px;
+  height:64px;
+  display:block;
+  margin:0 auto 10px;
+  border:2px solid #00ffff;
+  padding:4px;
+  background:black;
 }
 
 .icon:hover img{
-background:#00ffff;
+  background:#00ffff;
 }
 
 .icon:hover p{
-color:black;
+  color:black;
 }
 
-/* CENTER WIDGET (counter + music) */
+/* CENTER WIDGET (visitor counter + music) */
 
 .center-widget{
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:220px;
-background:black;
-border:3px solid #00ffff;
-box-shadow:0 0 10px #00ffff;
-padding:10px;
-z-index:900;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:240px;
+  background:black;
+  border:3px solid #00ffff;
+  box-shadow:0 0 10px #00ffff;
+  padding:10px;
+  z-index:900;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .visitor-counter{
-margin-bottom:10px;
-font-size:18px;
+  font-size:18px;
+  margin-bottom:15px;
+  text-align:center;
 }
 
 .music-player{
-border-top:2px solid #00ffff;
-padding-top:8px;
+  border-top:2px solid #00ffff;
+  padding-top:10px;
+  width:100%;
 }
 
 /* Retro TV */
 
 .tv-video{
-position:fixed;
-top:50%;
-right:20px;
-transform:translateY(-50%);
-width:340px;
-height:200px;
-padding:10px;
-background:black;
-border:5px solid #00ffff;
-box-shadow:0 0 20px #00ffff;
+  position:fixed;
+  top:50%;
+  right:20px;
+  transform:translateY(-50%);
+  width:340px;
+  height:200px;
+  padding:10px;
+  background:black;
+  border:5px solid #00ffff;
+  box-shadow:0 0 20px #00ffff;
 }
 
 .tv-video iframe{
-width:100%;
-height:100%;
-border:none;
+  width:100%;
+  height:100%;
+  border:none;
 }
 
 /* Left Link Box */
 
 .link-box{
-position:fixed;
-top:50%;
-left:20px;
-transform:translateY(-50%);
-width:200px;
-padding:10px;
-background:black;
-border:3px solid #00ffff;
-box-shadow:0 0 10px #00ffff;
-text-align:left;
+  position:fixed;
+  top:50%;
+  left:20px;
+  transform:translateY(-50%);
+  width:200px;
+  padding:10px;
+  background:black;
+  border:3px solid #00ffff;
+  box-shadow:0 0 10px #00ffff;
+  text-align:left;
 }
 
 .link-box h2{
-font-size:20px;
-margin-bottom:10px;
+  font-size:20px;
+  margin-bottom:10px;
 }
 
 .link-box ul{
-list-style:none;
-padding-left:5px;
+  list-style:none;
+  padding-left:5px;
 }
 
 .link-box li{
-margin-bottom:6px;
+  margin-bottom:6px;
 }
 
 .link-box a{
-color:#00ffff;
-text-decoration:none;
-border:1px solid #00ffff;
-padding:2px 4px;
-display:block;
+  color:#00ffff;
+  text-decoration:none;
+  border:1px solid #0ff;
+  padding:2px 4px;
+  display:block;
 }
 
 .link-box a:hover{
-background:#00ffff;
-color:black;
+  background:#00ffff;
+  color:black;
 }
 
 /* Skateboard Cat */
 
 .skateboarder{
-position:fixed;
-bottom:0;
-left:-150px;
-width:150px;
-z-index:1000;
-animation:skate 10s linear infinite;
+  position:fixed;
+  bottom:0;
+  left:-150px;
+  width:150px;
+  z-index:1000;
+  animation:skate 10s linear infinite;
 }
 
 .skateboarder img{
-width:150px;
+  width:150px;
 }
 
 @keyframes skate{
-0%{left:-150px;}
-100%{left:100%;}
+  0%{left:-150px;}
+  100%{left:100%;}
 }
 
 </style>
@@ -213,7 +218,7 @@ width:150px;
 
 </div>
 
-<!-- LEFT LINKS -->
+<!-- Left Links -->
 
 <div class="link-box">
 
@@ -228,29 +233,24 @@ width:150px;
 
 </div>
 
-<!-- CENTER MUSIC + COUNTER -->
+<!-- Center visitor counter + music player -->
 
 <div class="center-widget">
 
 <div class="visitor-counter">
-
 <p>Visitors</p>
-
 <img src="https://hitwebcounter.com/counter/counter.php?page=19420542&style=0006&nbdigits=5&type=page&initCount=0">
-
 </div>
 
 <div class="music-player">
-
-<audio controls>
+<audio controls style="width:100%;">
 <source src="music.mp3" type="audio/mpeg">
 </audio>
-
 </div>
 
 </div>
 
-<!-- YOUTUBE TV -->
+<!-- YouTube TV -->
 
 <div class="tv-video">
 
@@ -261,7 +261,7 @@ allowfullscreen>
 
 </div>
 
-<!-- SKATEBOARD CAT -->
+<!-- Skateboard Cat -->
 
 <div class="skateboarder">
 <img src="skateboarder-cat.gif">

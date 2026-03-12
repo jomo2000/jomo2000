@@ -47,6 +47,35 @@ background:#00ffff;
 color:black;
 }
 
+
+/* FLOATING CLICK ME BUTTON */
+
+#floatingClick{
+position:fixed;
+left:20px;
+top:50%;
+transform:translateY(-50%);
+z-index:9999;
+cursor:pointer;
+}
+
+#clickButton{
+background:black;
+color:#00ffff;
+border:2px solid #00ffff;
+padding:12px 18px;
+font-family:Courier New, monospace;
+font-size:14px;
+box-shadow:0 0 10px cyan;
+}
+
+#clickImage{
+display:none;
+max-width:200px;
+border:2px solid #00ffff;
+box-shadow:0 0 15px cyan;
+}
+
 </style>
 
 </head>
@@ -87,6 +116,38 @@ color:black;
 
 <br>
 <a href="index.html">Back to Home</a>
+
+
+<!-- FLOATING BUTTON -->
+<div id="floatingClick" onclick="toggleClick()">
+
+<div id="clickButton">
+CLICK ME IF U DARE
+</div>
+
+<img id="clickImage" src="click-me-if-u-dare.jpg">
+
+</div>
+
+
+<script>
+
+function toggleClick(){
+
+var button = document.getElementById("clickButton");
+var image = document.getElementById("clickImage");
+
+if(image.style.display === "none"){
+image.style.display = "block";
+button.style.display = "none";
+}else{
+image.style.display = "none";
+button.style.display = "block";
+}
+
+}
+
+</script>
 
 </body>
 </html>

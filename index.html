@@ -98,6 +98,52 @@
       height: 100%;
       border: none;
     }
+
+    /* --- Retro right-side link box --- */
+    .link-box {
+      position: fixed;
+      top: 50%;
+      right: 380px;       /* space between TV and box */
+      transform: translateY(-50%);
+      width: 200px;
+      padding: 10px;
+      background: black;
+      border: 3px solid #0ff;
+      box-shadow: 0 0 10px #0ff, inset 0 0 5px #0ff;
+      color: #00ffff;
+      font-family: Courier New, monospace;
+      text-align: left;
+      z-index: 900;        /* below skateboarder */
+    }
+
+    .link-box h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+      text-shadow: 0 0 5px #0ff;
+    }
+
+    .link-box ul {
+      list-style-type: none;
+      padding-left: 5px;
+    }
+
+    .link-box ul li {
+      margin-bottom: 6px;
+    }
+
+    .link-box ul li a {
+      color: #00ffff;
+      text-decoration: none;
+      border: 1px solid #0ff;
+      padding: 2px 4px;
+      display: block;
+    }
+
+    .link-box ul li a:hover {
+      background: #0ff;
+      color: black;
+    }
   </style>
 
 </head>
@@ -148,7 +194,24 @@
 
   <!-- Retro TV video -->
   <div class="tv-video">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/uQ7nLPc8lxs?si=v60UWwoyD7QVB7sZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="320" height="180" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Retro right-side link box -->
+  <div class="link-box">
+    <h2>8008135</h2>
+    <ul>
+      <li><a href="https://pointerpointer.com/" target="_blank">Pointer Pointer</a></li>
+      <li><a href="https://subjectmedia.org/" target="_blank">Subject Media</a></li>
+      <li><a href="https://00s.myretrotvs.com/#qi7Yh16dA0w" target="_blank">00s Retro TV</a></li>
+      <li><a href="https://pinball.alula.me/" target="_blank">Pinball</a></li>
+    </ul>
   </div>
 
   <!-- Skateboarder cat -->

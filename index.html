@@ -120,6 +120,7 @@
     .visitor-counter img {
       display: block;
       margin: 10px auto;
+      pointer-events: none; /* make unclickable */
     }
 
     .music-player audio {
@@ -129,8 +130,8 @@
     /* Skateboard Cat fixed at bottom with spacing */
     .skateboarder {
       position: fixed;
-      bottom: 20px; /* space above content */
-      left: -150px; /* start off screen */
+      bottom: 20px;
+      left: -150px;
       width: 100px;
       z-index: 1000;
       animation: skate 10s linear infinite;
@@ -169,37 +170,37 @@
   <div class="desktop-icons">
 
     <a href="recipes.html" class="icon">
-      <img src="recipes-icon.png">
+      <img src="recipes-icon.png" alt="Recipes">
       <p>Recipes</p>
     </a>
 
     <a href="music-videos.html" class="icon">
-      <img src="music-videos-icon.png">
+      <img src="music-videos-icon.png" alt="Music Videos">
       <p>Music Videos</p>
     </a>
 
     <a href="webkinz.html" class="icon">
-      <img src="webkinz-icon.png">
+      <img src="webkinz-icon.png" alt="Webkinz">
       <p>Webkinz</p>
     </a>
 
     <a href="tv-shows.html" class="icon">
-      <img src="tv-shows-icon.png">
+      <img src="tv-shows-icon.png" alt="TV Shows">
       <p>TV Shows</p>
     </a>
 
     <a href="movies.html" class="icon">
-      <img src="movies-icon.png">
+      <img src="movies-icon.png" alt="Movies">
       <p>Movies</p>
     </a>
 
     <a href="cable-tv.html" class="icon">
-      <img src="cable-tv-schedule-icon.png">
+      <img src="cable-tv-schedule-icon.png" alt="Cable TV">
       <p>Cable TV</p>
     </a>
 
     <a href="2000s-nostalgia.html" class="icon">
-      <img src="early-2000s-nostalgia.png">
+      <img src="early-2000s-nostalgia.png" alt="Early 2000s">
       <p>Early 2000s</p>
     </a>
 
@@ -212,16 +213,16 @@
     <div class="content-box link-box">
       <h2>8008135</h2>
       <ul>
-        <li><a href="https://pointerpointer.com/" target="_blank">Pointer Pointer</a></li>
-        <li><a href="https://www.addictinggames.com/" target="_blank">Addicting Games</a></li>
-        <li><a href="https://00s.myretrotvs.com/#qi7Yh16dA0w" target="_blank">00s Retro TV</a></li>
-        <li><a href="https://jspaint.app/#local:c9f4259460c408" target="_blank">JS Paint</a></li>
+        <li><a href="https://pointerpointer.com/" target="_blank" rel="noopener">Pointer Pointer</a></li>
+        <li><a href="https://www.addictinggames.com/" target="_blank" rel="noopener">Addicting Games</a></li>
+        <li><a href="https://00s.myretrotvs.com/#qi7Yh16dA0w" target="_blank" rel="noopener">00s Retro TV</a></li>
+        <li><a href="https://jspaint.app/#local:c9f4259460c408" target="_blank" rel="noopener">JS Paint</a></li>
       </ul>
     </div>
 
     <!-- YouTube TV -->
     <div class="content-box tv-video">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/iosHzNmVYbA?si=Skmq_SL2KSaWEz1w"
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/iosHzNmVYbA"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -231,7 +232,8 @@
     <div class="content-box">
       <div class="visitor-counter">
         <p>Visitors</p>
-        <img src="https://hitwebcounter.com/counter/counter.php?page=19420542&style=0006&nbdigits=5&type=page&initCount=0">
+        <img src="https://hitwebcounter.com/counter/counter.php?page=19420542&style=0006&nbdigits=5&type=page&initCount=0"
+          alt="Visitor Counter">
       </div>
       <div class="music-player">
         <audio controls>
@@ -244,7 +246,7 @@
 
   <!-- Skateboard Cat -->
   <div class="skateboarder">
-    <img src="skateboarder-cat.gif">
+    <img src="skateboarder-cat.gif" alt="Skateboard Cat">
   </div>
 
 </body>

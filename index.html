@@ -99,11 +99,11 @@
       border: none;
     }
 
-    /* --- Retro right-side link box --- */
+    /* --- Retro left-side link box --- */
     .link-box {
       position: fixed;
       top: 50%;
-      right: 380px;       /* space between TV and box */
+      left: 20px;           /* moved box to left */
       transform: translateY(-50%);
       width: 200px;
       padding: 10px;
@@ -113,13 +113,14 @@
       color: #00ffff;
       font-family: Courier New, monospace;
       text-align: left;
-      z-index: 900;        /* below skateboarder */
+      z-index: 900;         /* below skateboarder */
     }
 
     .link-box h2 {
       font-size: 20px;
       margin-bottom: 10px;
-      text-align: center;
+      text-align: left;
+      padding-left: 5px;
       text-shadow: 0 0 5px #0ff;
     }
 
@@ -203,7 +204,7 @@
     </iframe>
   </div>
 
-  <!-- Retro right-side link box -->
+  <!-- Retro left-side link box -->
   <div class="link-box">
     <h2>8008135</h2>
     <ul>

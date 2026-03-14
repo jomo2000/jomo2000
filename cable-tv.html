@@ -26,7 +26,6 @@ margin-bottom:20px;
 }
 
 .tab-button{
-
 background:black;
 color:cyan;
 border:2px solid cyan;
@@ -34,113 +33,72 @@ padding:8px 14px;
 margin:4px;
 cursor:pointer;
 font-family:"Courier New",monospace;
-
 }
 
 .tab-button:hover{
-
 background:cyan;
 color:black;
-
 }
 
 .tab-button.active{
-
 background:cyan;
 color:black;
-
 }
 
 /* Guide container */
 
 .guide-container{
-
 max-width:1000px;
 margin:auto;
 border:5px solid cyan;
 box-shadow:0 0 20px cyan,inset 0 0 10px cyan;
-overflow:hidden;
 height:400px;
-position:relative;
-
-}
-
-/* Scrolling guide */
-
-.guide{
-
-position:absolute;
-width:100%;
-animation:scrollGuide 40s linear infinite;
-
-}
-
-@keyframes scrollGuide{
-
-0%{transform:translateY(100%);}
-100%{transform:translateY(-100%);}
-
+overflow-y:auto;
 }
 
 /* Table */
 
 table{
-
 width:100%;
 border-collapse:collapse;
-
 }
 
 th,td{
-
 border:1px solid cyan;
 padding:8px;
 text-align:left;
-
 }
 
 th{
-
 background:#001f1f;
-
 }
 
 tr:nth-child(even){
-
 background:#001111;
-
 }
 
-/* Hidden tab content */
+/* Day sections */
 
 .day{
-
 display:none;
-
 }
 
 .day.active{
-
 display:block;
-
 }
 
 .back{
-
 margin-top:20px;
 display:inline-block;
 padding:6px 12px;
 border:2px solid cyan;
 color:cyan;
 text-decoration:none;
-
 }
 
 .back:hover{
-
 background:cyan;
 color:black;
-
 }
 
 </style>
@@ -158,12 +116,11 @@ color:black;
 
 </div>
 
-<!-- DAY 1 -->
+<!-- NOV 6 -->
 
 <div id="day1" class="day active">
 
 <div class="guide-container">
-<div class="guide">
 
 <table>
 
@@ -173,45 +130,55 @@ color:black;
 <th>Program</th>
 </tr>
 
-<tr><td>12:00 AM</td><td>Disney</td><td>Life with Derek</td></tr>
-<tr><td>12:30 AM</td><td>Disney</td><td>Cory in the House</td></tr>
-<tr><td>1:00 AM</td><td>Disney</td><td>The Replacements</td></tr>
-<tr><td>1:30 AM</td><td>Disney</td><td>Kim Possible</td></tr>
-<tr><td>2:00 AM</td><td>Disney</td><td>The Emperor's New School</td></tr>
-<tr><td>2:30 AM</td><td>Disney</td><td>American Dragon</td></tr>
-<tr><td>3:00 AM</td><td>Disney</td><td>The Proud Family</td></tr>
-<tr><td>4:00 AM</td><td>Disney</td><td>Recess</td></tr>
-<tr><td>5:00 AM</td><td>Disney</td><td>Lilo & Stitch</td></tr>
-<tr><td>6:00 AM</td><td>Disney</td><td>Phineas and Ferb</td></tr>
-<tr><td>7:00 AM</td><td>Disney</td><td>Handy Manny</td></tr>
-<tr><td>8:00 AM</td><td>Disney</td><td>Special Agent Oso</td></tr>
-<tr><td>9:00 AM</td><td>Disney</td><td>Imagination Movers</td></tr>
-<tr><td>10:00 AM</td><td>Disney</td><td>Little Einsteins</td></tr>
-<tr><td>11:00 AM</td><td>Disney</td><td>Tigger & Pooh</td></tr>
-<tr><td>12:00 PM</td><td>Disney</td><td>Stuck in the Suburbs (Movie)</td></tr>
-<tr><td>4:00 PM</td><td>Disney</td><td>Suite Life on Deck</td></tr>
-<tr><td>5:00 PM</td><td>Disney</td><td>Hannah Montana</td></tr>
-<tr><td>6:00 PM</td><td>Disney</td><td>Hannah Montana</td></tr>
-<tr><td>7:00 PM</td><td>Disney</td><td>Wizards of Waverly Place</td></tr>
-<tr><td>8:30 PM</td><td>Disney</td><td>Suite Life on Deck</td></tr>
-<tr><td>9:00 PM</td><td>Disney</td><td>Phineas and Ferb</td></tr>
-<tr><td>10:00 PM</td><td>Disney</td><td>Wizards of Waverly Place</td></tr>
-<tr><td>10:30 PM</td><td>Disney</td><td>Hannah Montana</td></tr>
-<tr><td>11:00 PM</td><td>Disney</td><td>Phineas and Ferb</td></tr>
+<tr><td>6:00 AM</td><td>Disney Channel</td><td>Phineas and Ferb</td></tr>
+<tr><td>7:00 AM</td><td>Disney Channel</td><td>Handy Manny</td></tr>
+<tr><td>8:00 AM</td><td>Disney Channel</td><td>Special Agent Oso</td></tr>
+
+<tr><td>3:00 PM</td><td>Disney Channel</td><td>Wizards of Waverly Place</td></tr>
+<tr><td>4:00 PM</td><td>Disney Channel</td><td>The Suite Life on Deck</td></tr>
+<tr><td>5:00 PM</td><td>Disney Channel</td><td>Hannah Montana</td></tr>
+<tr><td>7:00 PM</td><td>Disney Channel</td><td>Wizards of Waverly Place</td></tr>
+
+<tr><td>12:00 PM</td><td>Nickelodeon</td><td>SpongeBob SquarePants</td></tr>
+<tr><td>1:00 PM</td><td>Nickelodeon</td><td>iCarly</td></tr>
+<tr><td>2:00 PM</td><td>Nickelodeon</td><td>Drake & Josh</td></tr>
+<tr><td>3:00 PM</td><td>Nickelodeon</td><td>The Fairly OddParents</td></tr>
+<tr><td>5:00 PM</td><td>Nickelodeon</td><td>SpongeBob SquarePants</td></tr>
+
+<tr><td>1:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
+<tr><td>2:00 PM</td><td>Cartoon Network</td><td>Chowder</td></tr>
+<tr><td>3:00 PM</td><td>Cartoon Network</td><td>Ed, Edd n Eddy</td></tr>
+<tr><td>4:00 PM</td><td>Cartoon Network</td><td>Teen Titans</td></tr>
+
+<!-- ABC FAMILY -->
+
+<tr><td>9:00 AM</td><td>ABC Family</td><td>Full House</td></tr>
+<tr><td>9:30 AM</td><td>ABC Family</td><td>Full House</td></tr>
+<tr><td>10:00 AM</td><td>ABC Family</td><td>That '70s Show</td></tr>
+<tr><td>10:30 AM</td><td>ABC Family</td><td>That '70s Show</td></tr>
+<tr><td>11:00 AM</td><td>ABC Family</td><td>Gilmore Girls</td></tr>
+<tr><td>12:00 PM</td><td>ABC Family</td><td>Gilmore Girls</td></tr>
+<tr><td>1:00 PM</td><td>ABC Family</td><td>7th Heaven</td></tr>
+<tr><td>2:00 PM</td><td>ABC Family</td><td>The Secret Life of the American Teenager</td></tr>
+<tr><td>3:00 PM</td><td>ABC Family</td><td>Greek</td></tr>
+<tr><td>4:00 PM</td><td>ABC Family</td><td>That '70s Show</td></tr>
+<tr><td>5:00 PM</td><td>ABC Family</td><td>That '70s Show</td></tr>
+<tr><td>6:00 PM</td><td>ABC Family</td><td>Gilmore Girls</td></tr>
+<tr><td>7:00 PM</td><td>ABC Family</td><td>Greek</td></tr>
+<tr><td>8:00 PM</td><td>ABC Family</td><td>The Secret Life of the American Teenager</td></tr>
+<tr><td>9:00 PM</td><td>ABC Family</td><td>ABC Family Movie</td></tr>
 
 </table>
 
 </div>
-</div>
 
 </div>
 
-<!-- DAY 2 -->
+<!-- NOV 7 -->
 
 <div id="day2" class="day">
 
 <div class="guide-container">
-<div class="guide">
 
 <table>
 
@@ -221,29 +188,21 @@ color:black;
 <th>Program</th>
 </tr>
 
-<tr><td>12:00 PM</td><td>Nick</td><td>SpongeBob SquarePants</td></tr>
-<tr><td>12:30 PM</td><td>Nick</td><td>SpongeBob SquarePants</td></tr>
-<tr><td>1:00 PM</td><td>Nick</td><td>iCarly</td></tr>
-<tr><td>1:30 PM</td><td>Nick</td><td>Drake & Josh</td></tr>
-<tr><td>2:00 PM</td><td>Nick</td><td>Zoey 101</td></tr>
-<tr><td>3:00 PM</td><td>Nick</td><td>The Fairly OddParents</td></tr>
-<tr><td>4:00 PM</td><td>Nick</td><td>Avatar: The Last Airbender</td></tr>
-<tr><td>5:00 PM</td><td>Nick</td><td>iCarly</td></tr>
-<tr><td>6:00 PM</td><td>Nick</td><td>SpongeBob SquarePants</td></tr>
+<tr><td>1:00 PM</td><td>Nickelodeon</td><td>iCarly</td></tr>
+<tr><td>2:00 PM</td><td>Nickelodeon</td><td>Drake & Josh</td></tr>
+<tr><td>3:00 PM</td><td>Nickelodeon</td><td>SpongeBob SquarePants</td></tr>
 
 </table>
 
 </div>
-</div>
 
 </div>
 
-<!-- DAY 3 -->
+<!-- NOV 8 -->
 
 <div id="day3" class="day">
 
 <div class="guide-container">
-<div class="guide">
 
 <table>
 
@@ -253,18 +212,11 @@ color:black;
 <th>Program</th>
 </tr>
 
-<tr><td>12:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
-<tr><td>12:30 PM</td><td>Cartoon Network</td><td>Chowder</td></tr>
-<tr><td>1:00 PM</td><td>Cartoon Network</td><td>The Marvelous Misadventures of Flapjack</td></tr>
-<tr><td>1:30 PM</td><td>Cartoon Network</td><td>Total Drama Island</td></tr>
-<tr><td>2:00 PM</td><td>Cartoon Network</td><td>Foster's Home for Imaginary Friends</td></tr>
-<tr><td>3:00 PM</td><td>Cartoon Network</td><td>Ed, Edd n Eddy</td></tr>
-<tr><td>4:00 PM</td><td>Cartoon Network</td><td>Teen Titans</td></tr>
-<tr><td>5:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
+<tr><td>2:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
+<tr><td>3:00 PM</td><td>Cartoon Network</td><td>Foster's Home for Imaginary Friends</td></tr>
 
 </table>
 
-</div>
 </div>
 
 </div>

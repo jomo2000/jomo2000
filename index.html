@@ -2,383 +2,253 @@
 <html>
 
 <head>
-<title>Jomo's Retro Website</title>
+  <title>Jomo's Retro Website</title>
 
-<style>
+  <style>
+    body {
+      background: black;
+      color: #00ffff;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
 
-body{
-background:black;
-color:#00ffff;
-font-family:"Courier New",monospace;
-text-align:center;
-margin:0;
-padding:0;
-}
+    h1 {
+      font-size: 48px;
+      text-shadow: 0 0 10px cyan;
+    }
 
-h1{
-font-size:48px;
-text-shadow:0 0 10px cyan;
-}
+    /* Desktop Icons */
+    .desktop-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
 
-/* Desktop icons */
+    .icon {
+      width: 120px;
+      margin: 20px;
+      text-align: center;
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 16px;
+    }
 
-.desktop-icons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:40px;
-}
+    .icon img {
+      width: 64px;
+      height: 64px;
+      display: block;
+      margin: 0 auto 10px;
+      border: 2px solid #00ffff;
+      padding: 4px;
+      background: black;
+    }
 
-.icon{
-width:120px;
-margin:20px;
-text-align:center;
-color:#00ffff;
-text-decoration:none;
-font-size:16px;
-}
+    .icon:hover img {
+      background: #00ffff;
+    }
 
-.icon img{
-width:64px;
-height:64px;
-display:block;
-margin:0 auto 10px;
-border:2px solid #00ffff;
-padding:4px;
-background:black;
-}
+    .icon:hover p {
+      color: black;
+    }
 
-.icon:hover img{
-background:#00ffff;
-}
+    /* Container for everything below icons */
+    .below-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      padding: 20px;
+    }
 
-.icon:hover p{
-color:black;
-}
+    /* Shared Box Styling */
+    .content-box {
+      width: 90%;
+      max-width: 340px;
+      background: black;
+      border: 5px solid #00ffff;
+      box-shadow: 0 0 20px #00ffff, inset 0 0 5px #00ffff;
+      padding: 10px;
+      margin: 0 auto;
+      text-align: center;
+      overflow: auto;
+    }
 
-/* below icons */
+    .link-box {
+      text-align: left;
+    }
 
-.below-icons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin-top:40px;
-padding:20px;
-}
+    .link-box h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
 
-/* boxes */
+    .link-box ul {
+      list-style: none;
+      padding-left: 5px;
+    }
 
-.content-box{
-width:90%;
-max-width:340px;
-background:black;
-border:5px solid #00ffff;
-box-shadow:0 0 20px #00ffff,inset 0 0 5px #00ffff;
-padding:10px;
-margin:0 auto;
-text-align:center;
-overflow:auto;
-}
+    .link-box li {
+      margin-bottom: 6px;
+    }
 
-/* links */
+    .link-box a {
+      color: #00ffff;
+      text-decoration: none;
+      border: 1px solid #0ff;
+      padding: 2px 4px;
+      display: block;
+      font-size: 16px;
+    }
 
-.link-box{
-text-align:left;
-}
+    .link-box a:hover {
+      background: #00ffff;
+      color: black;
+    }
 
-.link-box h2{
-font-size:22px;
-margin-bottom:10px;
-}
+    /* TV box */
+    .tv-video iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
 
-.link-box ul{
-list-style:none;
-padding-left:5px;
-}
+    /* Visitor counter and music player */
+    .visitor-counter img {
+      display: block;
+      margin: 10px auto;
+      pointer-events: none; /* make unclickable */
+    }
 
-.link-box li{
-margin-bottom:6px;
-}
+    .music-player audio {
+      width: 100%;
+    }
 
-.link-box a{
-color:#00ffff;
-text-decoration:none;
-border:1px solid #0ff;
-padding:2px 4px;
-display:block;
-font-size:16px;
-}
+    /* Skateboard Cat fixed at bottom with spacing */
+    .skateboarder {
+      position: fixed;
+      bottom: 20px;
+      left: -150px;
+      width: 100px;
+      z-index: 1000;
+      animation: skate 10s linear infinite;
+    }
 
-.link-box a:hover{
-background:#00ffff;
-color:black;
-}
+    .skateboarder img {
+      width: 100px;
+    }
 
-/* TV */
+    @keyframes skate {
+      0% {
+        left: -150px;
+      }
 
-.tv-frame{
-position:relative;
-width:100%;
-max-width:320px;
-margin:auto;
-}
+      100% {
+        left: 100%;
+      }
+    }
 
-.tv-frame img{
-width:100%;
-display:block;
-}
-
-/* video screen */
-
-.tv-screen{
-position:absolute;
-top:18%;
-left:12%;
-width:76%;
-height:52%;
-overflow:hidden;
-background:black;
-}
-
-.tv-screen iframe{
-width:100%;
-height:100%;
-border:none;
-}
-
-/* power on animation */
-
-.tv-off{
-background:black;
-animation:tvOn 1s forwards;
-}
-
-@keyframes tvOn{
-
-0%{
-transform:scaleY(0);
-background:white;
-}
-
-40%{
-transform:scaleY(0.02);
-}
-
-60%{
-transform:scaleY(1);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-
-/* channel button */
-
-.channel-btn{
-margin-top:10px;
-background:black;
-border:2px solid cyan;
-color:cyan;
-padding:6px 10px;
-font-family:Courier New,monospace;
-cursor:pointer;
-}
-
-.channel-btn:hover{
-background:cyan;
-color:black;
-}
-
-/* visitor counter */
-
-.visitor-counter img{
-display:block;
-margin:10px auto;
-pointer-events:none;
-}
-
-.music-player audio{
-width:100%;
-}
-
-/* skateboard cat */
-
-.skateboarder{
-position:fixed;
-bottom:20px;
-left:-150px;
-width:100px;
-z-index:1000;
-animation:skate 10s linear infinite;
-}
-
-.skateboarder img{
-width:100px;
-}
-
-@keyframes skate{
-
-0%{left:-150px;}
-100%{left:100%;}
-
-}
-
-@media(max-width:600px){
-
-.content-box{
-width:95%;
-max-width:none;
-}
-
-}
-
-</style>
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .content-box {
+        width: 95%;
+        max-width: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Welcome to My Website</h1>
-<p>My personal corner of the internet</p>
+  <h1>Welcome to My Website</h1>
+  <p>My personal corner of the internet</p>
 
-<div class="desktop-icons">
+  <!-- Desktop Icons -->
+  <div class="desktop-icons">
 
-<a href="recipes.html" class="icon">
-<img src="recipes-icon.png">
-<p>Recipes</p>
-</a>
+    <a href="recipes.html" class="icon">
+      <img src="recipes-icon.png" alt="Recipes">
+      <p>Recipes</p>
+    </a>
 
-<a href="music-videos.html" class="icon">
-<img src="music-videos-icon.png">
-<p>Music Videos</p>
-</a>
+    <a href="music-videos.html" class="icon">
+      <img src="music-videos-icon.png" alt="Music Videos">
+      <p>Music Videos</p>
+    </a>
 
-<a href="webkinz.html" class="icon">
-<img src="webkinz-icon.png">
-<p>Webkinz</p>
-</a>
+    <a href="webkinz.html" class="icon">
+      <img src="webkinz-icon.png" alt="Webkinz">
+      <p>Webkinz</p>
+    </a>
 
-<a href="tv-shows.html" class="icon">
-<img src="tv-shows-icon.png">
-<p>TV Shows</p>
-</a>
+    <a href="tv-shows.html" class="icon">
+      <img src="tv-shows-icon.png" alt="TV Shows">
+      <p>TV Shows</p>
+    </a>
 
-<a href="movies.html" class="icon">
-<img src="movies-icon.png">
-<p>Movies</p>
-</a>
+    <a href="movies.html" class="icon">
+      <img src="movies-icon.png" alt="Movies">
+      <p>Movies</p>
+    </a>
 
-<a href="cable-tv.html" class="icon">
-<img src="cable-tv-schedule-icon.png">
-<p>Cable TV</p>
-</a>
+    <a href="cable-tv.html" class="icon">
+      <img src="cable-tv-schedule-icon.png" alt="Cable TV">
+      <p>Cable TV</p>
+    </a>
 
-<a href="2000s-nostalgia.html" class="icon">
-<img src="early-2000s-nostalgia.png">
-<p>Early 2000s</p>
-</a>
+    <a href="2000s-nostalgia.html" class="icon">
+      <img src="early-2000s-nostalgia.png" alt="Early 2000s">
+      <p>Early 2000s</p>
+    </a>
 
-</div>
+  </div>
 
-<div class="below-icons">
+  <!-- Everything below icons -->
+  <div class="below-icons">
 
-<div class="content-box link-box">
+    <!-- Left Links -->
+    <div class="content-box link-box">
+      <h2>8008135</h2>
+      <ul>
+        <li><a href="https://pointerpointer.com/" target="_blank" rel="noopener">Pointer Pointer</a></li>
+        <li><a href="https://www.addictinggames.com/" target="_blank" rel="noopener">Addicting Games</a></li>
+        <li><a href="https://00s.myretrotvs.com/#qi7Yh16dA0w" target="_blank" rel="noopener">00s Retro TV</a></li>
+        <li><a href="https://jspaint.app/#local:c9f4259460c408" target="_blank" rel="noopener">JS Paint</a></li>
+      </ul>
+    </div>
 
-<h2>8008135</h2>
+    <!-- YouTube TV -->
+    <div class="content-box tv-video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/iosHzNmVYbA"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 
-<ul>
+    <!-- Visitor Counter + Music Player -->
+    <div class="content-box">
+      <div class="visitor-counter">
+        <p>Visitors</p>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=19420542&style=0006&nbdigits=5&type=page&initCount=0"
+          alt="Visitor Counter">
+      </div>
+      <div class="music-player">
+        <audio controls>
+          <source src="music.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
 
-<li><a href="https://pointerpointer.com/" target="_blank">Pointer Pointer</a></li>
-<li><a href="https://www.addictinggames.com/" target="_blank">Addicting Games</a></li>
-<li><a href="https://00s.myretrotvs.com/" target="_blank">00s Retro TV</a></li>
-<li><a href="https://jspaint.app/" target="_blank">JS Paint</a></li>
+  </div>
 
-</ul>
-
-</div>
-
-<!-- TV -->
-
-<div class="content-box">
-
-<div class="tv-frame">
-
-<img src="crt-tv.png">
-
-<div class="tv-screen tv-off">
-
-<iframe id="tvPlayer"
-src="https://www.youtube.com/embed/qO0WvudbO04"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</div>
-
-<button class="channel-btn" onclick="changeChannel()">
-Change Channel
-</button>
-
-</div>
-
-<!-- visitor + music -->
-
-<div class="content-box">
-
-<div class="visitor-counter">
-
-<p>Visitors</p>
-
-<img src="https://hitwebcounter.com/counter/counter.php?page=19420542&style=0006&nbdigits=5&type=page&initCount=0">
-
-</div>
-
-<div class="music-player">
-
-<audio controls>
-
-<source src="music.mp3" type="audio/mpeg">
-
-</audio>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="skateboarder">
-<img src="skateboarder-cat.gif">
-</div>
-
-<script>
-
-/* video list */
-
-const videos=[
-
-"qO0WvudbO04",
-"iosHzNmVYbA",
-"qi7Yh16dA0w",
-"9bZkp7q19f0"
-
-];
-
-/* shuffle channel */
-
-function changeChannel(){
-
-let randomVideo=videos[Math.floor(Math.random()*videos.length)];
-
-document.getElementById("tvPlayer").src=
-"https://www.youtube.com/embed/"+randomVideo;
-
-}
-
-</script>
+  <!-- Skateboard Cat -->
+  <div class="skateboarder">
+    <img src="skateboarder-cat.gif" alt="Skateboard Cat">
+  </div>
 
 </body>
+
 </html>

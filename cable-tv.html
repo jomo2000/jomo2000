@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>Retro TV Guide</title>
+<title>2009 Cable TV Guide</title>
 
 <style>
 
@@ -10,16 +10,15 @@ body{
 background:black;
 color:#00ffff;
 font-family:"Courier New",monospace;
-margin:0;
-padding:20px;
 text-align:center;
+padding:20px;
 }
 
 h1{
 text-shadow:0 0 10px cyan;
 }
 
-/* Tabs */
+/* tabs */
 
 .tabs{
 margin-bottom:20px;
@@ -32,12 +31,6 @@ border:2px solid cyan;
 padding:8px 14px;
 margin:4px;
 cursor:pointer;
-font-family:"Courier New",monospace;
-}
-
-.tab-button:hover{
-background:cyan;
-color:black;
 }
 
 .tab-button.active{
@@ -45,28 +38,25 @@ background:cyan;
 color:black;
 }
 
-/* Guide container */
+/* guide */
 
-.guide-container{
-max-width:1000px;
+.guide{
+max-width:1100px;
 margin:auto;
 border:5px solid cyan;
-box-shadow:0 0 20px cyan,inset 0 0 10px cyan;
-height:400px;
-overflow-y:auto;
+box-shadow:0 0 20px cyan;
+overflow-x:auto;
 }
 
-/* Table */
-
 table{
-width:100%;
 border-collapse:collapse;
+width:100%;
 }
 
 th,td{
 border:1px solid cyan;
-padding:8px;
-text-align:left;
+padding:6px;
+font-size:14px;
 }
 
 th{
@@ -77,8 +67,6 @@ tr:nth-child(even){
 background:#001111;
 }
 
-/* Day sections */
-
 .day{
 display:none;
 }
@@ -87,141 +75,99 @@ display:none;
 display:block;
 }
 
-.back{
-margin-top:20px;
-display:inline-block;
-padding:6px 12px;
-border:2px solid cyan;
-color:cyan;
-text-decoration:none;
-}
-
-.back:hover{
-background:cyan;
-color:black;
-}
-
 </style>
 </head>
 
 <body>
 
-<h1>Retro TV Guide</h1>
+<h1>2009 Cable TV Guide</h1>
 
 <div class="tabs">
 
-<button class="tab-button active" onclick="showDay('day1',this)">Nov 6 2009</button>
-<button class="tab-button" onclick="showDay('day2',this)">Nov 7 2009</button>
-<button class="tab-button" onclick="showDay('day3',this)">Nov 8 2009</button>
+<button class="tab-button active" onclick="showDay('mon',this)">Mon</button>
+<button class="tab-button" onclick="showDay('tue',this)">Tue</button>
+<button class="tab-button" onclick="showDay('wed',this)">Wed</button>
+<button class="tab-button" onclick="showDay('thu',this)">Thu</button>
+<button class="tab-button" onclick="showDay('fri',this)">Fri</button>
+<button class="tab-button" onclick="showDay('sat',this)">Sat</button>
+<button class="tab-button" onclick="showDay('sun',this)">Sun</button>
 
 </div>
 
-<!-- NOV 6 -->
+<!-- MONDAY -->
 
-<div id="day1" class="day active">
-
-<div class="guide-container">
+<div id="mon" class="day active">
+<div class="guide">
 
 <table>
 
 <tr>
 <th>Time</th>
-<th>Channel</th>
-<th>Program</th>
+<th>Nickelodeon</th>
+<th>Disney</th>
+<th>ABC Family</th>
+<th>Cartoon Network</th>
+<th>MTV</th>
+<th>TLC</th>
 </tr>
 
-<tr><td>6:00 AM</td><td>Disney Channel</td><td>Phineas and Ferb</td></tr>
-<tr><td>7:00 AM</td><td>Disney Channel</td><td>Handy Manny</td></tr>
-<tr><td>8:00 AM</td><td>Disney Channel</td><td>Special Agent Oso</td></tr>
+<tr><td>3 PM</td><td>SpongeBob</td><td>Suite Life on Deck</td><td>That '70s Show</td><td>Ed Edd n Eddy</td><td>TRL Rewind</td><td>What Not to Wear</td></tr>
 
-<tr><td>3:00 PM</td><td>Disney Channel</td><td>Wizards of Waverly Place</td></tr>
-<tr><td>4:00 PM</td><td>Disney Channel</td><td>The Suite Life on Deck</td></tr>
-<tr><td>5:00 PM</td><td>Disney Channel</td><td>Hannah Montana</td></tr>
-<tr><td>7:00 PM</td><td>Disney Channel</td><td>Wizards of Waverly Place</td></tr>
+<tr><td>4 PM</td><td>Drake & Josh</td><td>Wizards of Waverly Place</td><td>Gilmore Girls</td><td>Ben 10</td><td>Pimp My Ride</td><td>Say Yes to the Dress</td></tr>
 
-<tr><td>12:00 PM</td><td>Nickelodeon</td><td>SpongeBob SquarePants</td></tr>
-<tr><td>1:00 PM</td><td>Nickelodeon</td><td>iCarly</td></tr>
-<tr><td>2:00 PM</td><td>Nickelodeon</td><td>Drake & Josh</td></tr>
-<tr><td>3:00 PM</td><td>Nickelodeon</td><td>The Fairly OddParents</td></tr>
-<tr><td>5:00 PM</td><td>Nickelodeon</td><td>SpongeBob SquarePants</td></tr>
+<tr><td>5 PM</td><td>iCarly</td><td>Hannah Montana</td><td>Greek</td><td>Chowder</td><td>Next</td><td>Jon & Kate Plus 8</td></tr>
 
-<tr><td>1:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
-<tr><td>2:00 PM</td><td>Cartoon Network</td><td>Chowder</td></tr>
-<tr><td>3:00 PM</td><td>Cartoon Network</td><td>Ed, Edd n Eddy</td></tr>
-<tr><td>4:00 PM</td><td>Cartoon Network</td><td>Teen Titans</td></tr>
+<tr><td>6 PM</td><td>Fairly OddParents</td><td>Phineas & Ferb</td><td>Secret Life</td><td>Camp Lazlo</td><td>The Hills</td><td>Little People Big World</td></tr>
 
-<!-- ABC FAMILY -->
+<tr><td>7 PM</td><td>iCarly</td><td>Suite Life</td><td>Greek</td><td>Ben 10</td><td>Jersey Shore</td><td>Cake Boss</td></tr>
 
-<tr><td>9:00 AM</td><td>ABC Family</td><td>Full House</td></tr>
-<tr><td>9:30 AM</td><td>ABC Family</td><td>Full House</td></tr>
-<tr><td>10:00 AM</td><td>ABC Family</td><td>That '70s Show</td></tr>
-<tr><td>10:30 AM</td><td>ABC Family</td><td>That '70s Show</td></tr>
-<tr><td>11:00 AM</td><td>ABC Family</td><td>Gilmore Girls</td></tr>
-<tr><td>12:00 PM</td><td>ABC Family</td><td>Gilmore Girls</td></tr>
-<tr><td>1:00 PM</td><td>ABC Family</td><td>7th Heaven</td></tr>
-<tr><td>2:00 PM</td><td>ABC Family</td><td>The Secret Life of the American Teenager</td></tr>
-<tr><td>3:00 PM</td><td>ABC Family</td><td>Greek</td></tr>
-<tr><td>4:00 PM</td><td>ABC Family</td><td>That '70s Show</td></tr>
-<tr><td>5:00 PM</td><td>ABC Family</td><td>That '70s Show</td></tr>
-<tr><td>6:00 PM</td><td>ABC Family</td><td>Gilmore Girls</td></tr>
-<tr><td>7:00 PM</td><td>ABC Family</td><td>Greek</td></tr>
-<tr><td>8:00 PM</td><td>ABC Family</td><td>The Secret Life of the American Teenager</td></tr>
-<tr><td>9:00 PM</td><td>ABC Family</td><td>ABC Family Movie</td></tr>
+<tr><td>8 PM</td><td>SpongeBob</td><td>Wizards</td><td>ABC Family Movie</td><td>Star Wars Clone Wars</td><td>The Hills</td><td>Jon & Kate Plus 8</td></tr>
+
+<tr><td>9 PM</td><td>George Lopez</td><td>Hannah Montana</td><td>Greek</td><td>Adult Swim</td><td>Real World</td><td>LA Ink</td></tr>
 
 </table>
 
 </div>
-
 </div>
 
-<!-- NOV 7 -->
 
-<div id="day2" class="day">
+<!-- TUESDAY -->
 
-<div class="guide-container">
+<div id="tue" class="day">
+<div class="guide">
 
 <table>
 
 <tr>
 <th>Time</th>
-<th>Channel</th>
-<th>Program</th>
+<th>Nick</th>
+<th>Disney</th>
+<th>ABC Family</th>
+<th>Cartoon Network</th>
+<th>MTV</th>
+<th>TLC</th>
 </tr>
 
-<tr><td>1:00 PM</td><td>Nickelodeon</td><td>iCarly</td></tr>
-<tr><td>2:00 PM</td><td>Nickelodeon</td><td>Drake & Josh</td></tr>
-<tr><td>3:00 PM</td><td>Nickelodeon</td><td>SpongeBob SquarePants</td></tr>
+<tr><td>3 PM</td><td>SpongeBob</td><td>Suite Life</td><td>Full House</td><td>Johnny Bravo</td><td>Made</td><td>What Not to Wear</td></tr>
+
+<tr><td>4 PM</td><td>Drake & Josh</td><td>Wizards</td><td>Gilmore Girls</td><td>Ben 10</td><td>Pimp My Ride</td><td>Say Yes to the Dress</td></tr>
+
+<tr><td>5 PM</td><td>iCarly</td><td>Hannah Montana</td><td>That '70s Show</td><td>Chowder</td><td>Next</td><td>Jon & Kate Plus 8</td></tr>
+
+<tr><td>6 PM</td><td>Fairly OddParents</td><td>Phineas & Ferb</td><td>Greek</td><td>Camp Lazlo</td><td>The Hills</td><td>Cake Boss</td></tr>
+
+<tr><td>7 PM</td><td>iCarly</td><td>Suite Life</td><td>Secret Life</td><td>Ben 10</td><td>Jersey Shore</td><td>Little People Big World</td></tr>
+
+<tr><td>8 PM</td><td>SpongeBob</td><td>Wizards</td><td>ABC Family Movie</td><td>Clone Wars</td><td>The Hills</td><td>Jon & Kate Plus 8</td></tr>
+
+<tr><td>9 PM</td><td>George Lopez</td><td>Hannah Montana</td><td>Greek</td><td>Adult Swim</td><td>Real World</td><td>LA Ink</td></tr>
 
 </table>
 
 </div>
-
 </div>
 
-<!-- NOV 8 -->
-
-<div id="day3" class="day">
-
-<div class="guide-container">
-
-<table>
-
-<tr>
-<th>Time</th>
-<th>Channel</th>
-<th>Program</th>
-</tr>
-
-<tr><td>2:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
-<tr><td>3:00 PM</td><td>Cartoon Network</td><td>Foster's Home for Imaginary Friends</td></tr>
-
-</table>
-
-</div>
-
-</div>
-
-<a href="index.html" class="back">Back to Home</a>
+<!-- You can duplicate this structure for Wed, Thu, Fri, Sat, Sun -->
 
 <script>
 
@@ -245,5 +191,7 @@ button.classList.add("active");
 
 </script>
 
+</body>
+</html>
 </body>
 </html>

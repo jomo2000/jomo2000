@@ -1,286 +1,187 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>2009 Cable TV Guide - Retro Style</title>
+<meta charset="UTF-8">
+<title>2009 Cable TV Guide - PCI Style</title>
 <style>
 body {
-    font-family: "Courier New", monospace;
-    background: #1b1b1b; /* dark gray background */
+    background: #000;
     color: #fff;
+    font-family: "Courier New", monospace;
     margin: 0;
     padding: 20px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 28px;
     color: #ffcc00;
     text-shadow: 1px 1px 2px #000;
 }
 
-/* Tabs */
-.tabs {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.tab-button {
-    background: #333;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    margin: 2px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.tab-button.active {
-    background: #ffcc00;
-    color: #000;
-}
-
-/* TV guide table */
-.guide {
-    max-width: 1100px;
-    margin: auto;
-    border-collapse: collapse;
+.guide-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    border: 2px solid #444;
     overflow-x: auto;
+    background: #111;
 }
 
-.guide table {
-    width: 100%;
-    border-collapse: collapse;
+/* Top time bar */
+.time-bar {
+    display: flex;
+    border-bottom: 2px solid #444;
 }
 
-.guide th, .guide td {
-    border: 1px solid #555;
-    padding: 6px;
+.time-slot {
+    flex: 1;
     text-align: center;
-    font-size: 14px;
-}
-
-.guide th {
-    background: #2b2b2b;
-    color: #ffcc00;
+    padding: 5px 0;
+    border-right: 1px solid #444;
     font-weight: bold;
+    color: #ffcc00;
+    background: #222;
 }
 
-.guide td {
-    background: #2f2f2f;
+.time-slot:last-child { border-right: none; }
+
+/* Channels */
+.channel-row {
+    display: flex;
+    border-bottom: 1px solid #444;
+}
+
+.channel-name {
+    width: 150px;
+    background: #222;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 40px;
+    font-weight: bold;
+    border-right: 1px solid #444;
+    color: #ff9900;
+}
+
+/* Shows */
+.show-block {
+    height: 40px;
+    line-height: 40px;
     color: #fff;
-}
-
-.guide td.show:hover {
-    background: #444;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
 }
 
-/* Hide inactive days */
-.day {
-    display: none;
+.show-block:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
-.day.active {
-    display: block;
-}
+
+/* Channel colors */
+.Nickelodeon { background: #ff6600; }
+.Disney { background: #3399ff; }
+.ABCFamily { background: #ffcc33; color:#000; }
+.CartoonNetwork { background: #999999; color:#000; }
+.MTV { background: #cc0066; }
+.TLC { background: #33cc33; color:#000; }
+
+/* Show width proportional to duration in 30-min blocks */
+.block-1 { flex: 1; }  /* 30 min */
+.block-2 { flex: 2; }  /* 1 hr */
+.block-3 { flex: 3; }  /* 1.5 hr */
+.block-4 { flex: 4; }  /* 2 hr */
 </style>
 </head>
 <body>
+<h1>Monday Cable TV Guide (2009)</h1>
 
-<h1>2009 Cable TV Guide</h1>
+<div class="guide-container">
 
-<div class="tabs">
-<button class="tab-button active" onclick="showDay('mon',this)">Mon</button>
-<button class="tab-button" onclick="showDay('tue',this)">Tue</button>
-<button class="tab-button" onclick="showDay('wed',this)">Wed</button>
-<button class="tab-button" onclick="showDay('thu',this)">Thu</button>
-<button class="tab-button" onclick="showDay('fri',this)">Fri</button>
-<button class="tab-button" onclick="showDay('sat',this)">Sat</button>
-<button class="tab-button" onclick="showDay('sun',this)">Sun</button>
-</div>
+    <!-- Time bar -->
+    <div class="time-bar">
+        <div class="time-slot">3:00 PM</div>
+        <div class="time-slot">4:00 PM</div>
+        <div class="time-slot">5:00 PM</div>
+        <div class="time-slot">6:00 PM</div>
+        <div class="time-slot">7:00 PM</div>
+        <div class="time-slot">8:00 PM</div>
+        <div class="time-slot">9:00 PM</div>
+    </div>
 
-<!-- Monday & Tuesday (full schedule, same as before) -->
-<!-- Monday -->
-<div id="mon" class="day active">
-<div class="guide">
-<table>
-<tr>
-<th>Time</th>
-<th>Nickelodeon</th>
-<th>Disney</th>
-<th>ABC Family</th>
-<th>Cartoon Network</th>
-<th>MTV</th>
-<th>TLC</th>
-</tr>
-<tr><td>3 PM</td><td class="show">SpongeBob</td><td class="show">Suite Life on Deck</td><td class="show">That '70s Show</td><td class="show">Ed Edd n Eddy</td><td class="show">TRL Rewind</td><td class="show">What Not to Wear</td></tr>
-<tr><td>4 PM</td><td class="show">Drake & Josh</td><td class="show">Wizards of Waverly Place</td><td class="show">Gilmore Girls</td><td class="show">Ben 10</td><td class="show">Pimp My Ride</td><td class="show">Say Yes to the Dress</td></tr>
-<tr><td>5 PM</td><td class="show">iCarly</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Chowder</td><td class="show">Next</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>6 PM</td><td class="show">Fairly OddParents</td><td class="show">Phineas & Ferb</td><td class="show">Secret Life</td><td class="show">Camp Lazlo</td><td class="show">The Hills</td><td class="show">Little People Big World</td></tr>
-<tr><td>7 PM</td><td class="show">iCarly</td><td class="show">Suite Life</td><td class="show">Greek</td><td class="show">Ben 10</td><td class="show">Jersey Shore</td><td class="show">Cake Boss</td></tr>
-<tr><td>8 PM</td><td class="show">SpongeBob</td><td class="show">Wizards</td><td class="show">ABC Family Movie</td><td class="show">Star Wars Clone Wars</td><td class="show">The Hills</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>9 PM</td><td class="show">George Lopez</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Adult Swim</td><td class="show">Real World</td><td class="show">LA Ink</td></tr>
-</table>
-</div>
-</div>
+    <!-- Nickelodeon -->
+    <div class="channel-row">
+        <div class="channel-name">Nickelodeon</div>
+        <div class="show-block Nickelodeon block-1">SpongeBob</div>
+        <div class="show-block Nickelodeon block-1">Drake & Josh</div>
+        <div class="show-block Nickelodeon block-1">iCarly</div>
+        <div class="show-block Nickelodeon block-1">Fairly OddParents</div>
+        <div class="show-block Nickelodeon block-1">iCarly</div>
+        <div class="show-block Nickelodeon block-1">SpongeBob</div>
+        <div class="show-block Nickelodeon block-1">George Lopez</div>
+    </div>
 
-<!-- Tuesday -->
-<div id="tue" class="day">
-<div class="guide">
-<table>
-<tr>
-<th>Time</th>
-<th>Nickelodeon</th>
-<th>Disney</th>
-<th>ABC Family</th>
-<th>Cartoon Network</th>
-<th>MTV</th>
-<th>TLC</th>
-</tr>
-<tr><td>3 PM</td><td class="show">SpongeBob</td><td class="show">Suite Life</td><td class="show">Full House</td><td class="show">Johnny Bravo</td><td class="show">Made</td><td class="show">What Not to Wear</td></tr>
-<tr><td>4 PM</td><td class="show">Drake & Josh</td><td class="show">Wizards</td><td class="show">Gilmore Girls</td><td class="show">Ben 10</td><td class="show">Pimp My Ride</td><td class="show">Say Yes to the Dress</td></tr>
-<tr><td>5 PM</td><td class="show">iCarly</td><td class="show">Hannah Montana</td><td class="show">That '70s Show</td><td class="show">Chowder</td><td class="show">Next</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>6 PM</td><td class="show">Fairly OddParents</td><td class="show">Phineas & Ferb</td><td class="show">Greek</td><td class="show">Camp Lazlo</td><td class="show">The Hills</td><td class="show">Cake Boss</td></tr>
-<tr><td>7 PM</td><td class="show">iCarly</td><td class="show">Suite Life</td><td class="show">Secret Life</td><td class="show">Ben 10</td><td class="show">Jersey Shore</td><td class="show">Little People Big World</td></tr>
-<tr><td>8 PM</td><td class="show">SpongeBob</td><td class="show">Wizards</td><td class="show">ABC Family Movie</td><td class="show">Clone Wars</td><td class="show">The Hills</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>9 PM</td><td class="show">George Lopez</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Adult Swim</td><td class="show">Real World</td><td class="show">LA Ink</td></tr>
-</table>
-</div>
-</div>
+    <!-- Disney -->
+    <div class="channel-row">
+        <div class="channel-name">Disney</div>
+        <div class="show-block Disney block-1">Suite Life on Deck</div>
+        <div class="show-block Disney block-1">Wizards of Waverly Place</div>
+        <div class="show-block Disney block-1">Hannah Montana</div>
+        <div class="show-block Disney block-1">Phineas & Ferb</div>
+        <div class="show-block Disney block-1">Suite Life</div>
+        <div class="show-block Disney block-1">Wizards</div>
+        <div class="show-block Disney block-1">Hannah Montana</div>
+    </div>
 
-<!-- Wednesday -->
-<div id="wed" class="day">
-<div class="guide">
-<table>
-<tr>
-<th>Time</th>
-<th>Nickelodeon</th>
-<th>Disney</th>
-<th>ABC Family</th>
-<th>Cartoon Network</th>
-<th>MTV</th>
-<th>TLC</th>
-</tr>
-<tr><td>3 PM</td><td class="show">SpongeBob</td><td class="show">Suite Life on Deck</td><td class="show">That '70s Show</td><td class="show">Ed Edd n Eddy</td><td class="show">TRL Rewind</td><td class="show">What Not to Wear</td></tr>
-<tr><td>4 PM</td><td class="show">Drake & Josh</td><td class="show">Wizards of Waverly Place</td><td class="show">Gilmore Girls</td><td class="show">Ben 10</td><td class="show">Pimp My Ride</td><td class="show">Say Yes to the Dress</td></tr>
-<tr><td>5 PM</td><td class="show">iCarly</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Chowder</td><td class="show">Next</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>6 PM</td><td class="show">Fairly OddParents</td><td class="show">Phineas & Ferb</td><td class="show">Secret Life</td><td class="show">Camp Lazlo</td><td class="show">The Hills</td><td class="show">Little People Big World</td></tr>
-<tr><td>7 PM</td><td class="show">iCarly</td><td class="show">Suite Life</td><td class="show">Greek</td><td class="show">Ben 10</td><td class="show">Jersey Shore</td><td class="show">Cake Boss</td></tr>
-<tr><td>8 PM</td><td class="show">SpongeBob</td><td class="show">Wizards</td><td class="show">ABC Family Movie</td><td class="show">Star Wars Clone Wars</td><td class="show">The Hills</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>9 PM</td><td class="show">George Lopez</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Adult Swim</td><td class="show">Real World</td><td class="show">LA Ink</td></tr>
-</table>
-</div>
-</div>
+    <!-- ABC Family -->
+    <div class="channel-row">
+        <div class="channel-name">ABC Family</div>
+        <div class="show-block ABCFamily block-1">That '70s Show</div>
+        <div class="show-block ABCFamily block-1">Gilmore Girls</div>
+        <div class="show-block ABCFamily block-1">Greek</div>
+        <div class="show-block ABCFamily block-1">Secret Life</div>
+        <div class="show-block ABCFamily block-1">Greek</div>
+        <div class="show-block ABCFamily block-1">ABC Family Movie</div>
+        <div class="show-block ABCFamily block-1">Greek</div>
+    </div>
 
-<!-- Thursday -->
-<div id="thu" class="day">
-<div class="guide">
-<table>
-<tr>
-<th>Time</th>
-<th>Nickelodeon</th>
-<th>Disney</th>
-<th>ABC Family</th>
-<th>Cartoon Network</th>
-<th>MTV</th>
-<th>TLC</th>
-</tr>
-<tr><td>3 PM</td><td class="show">SpongeBob</td><td class="show">Suite Life on Deck</td><td class="show">That '70s Show</td><td class="show">Ed Edd n Eddy</td><td class="show">TRL Rewind</td><td class="show">What Not to Wear</td></tr>
-<tr><td>4 PM</td><td class="show">Drake & Josh</td><td class="show">Wizards of Waverly Place</td><td class="show">Gilmore Girls</td><td class="show">Ben 10</td><td class="show">Pimp My Ride</td><td class="show">Say Yes to the Dress</td></tr>
-<tr><td>5 PM</td><td class="show">iCarly</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Chowder</td><td class="show">Next</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>6 PM</td><td class="show">Fairly OddParents</td><td class="show">Phineas & Ferb</td><td class="show">Secret Life</td><td class="show">Camp Lazlo</td><td class="show">The Hills</td><td class="show">Little People Big World</td></tr>
-<tr><td>7 PM</td><td class="show">iCarly</td><td class="show">Suite Life</td><td class="show">Greek</td><td class="show">Ben 10</td><td class="show">Jersey Shore</td><td class="show">Cake Boss</td></tr>
-<tr><td>8 PM</td><td class="show">SpongeBob</td><td class="show">Wizards</td><td class="show">ABC Family Movie</td><td class="show">Star Wars Clone Wars</td><td class="show">The Hills</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>9 PM</td><td class="show">George Lopez</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Adult Swim</td><td class="show">Real World</td><td class="show">LA Ink</td></tr>
-</table>
-</div>
-</div>
+    <!-- Cartoon Network -->
+    <div class="channel-row">
+        <div class="channel-name">Cartoon Network</div>
+        <div class="show-block CartoonNetwork block-1">Ed Edd n Eddy</div>
+        <div class="show-block CartoonNetwork block-1">Ben 10</div>
+        <div class="show-block CartoonNetwork block-1">Chowder</div>
+        <div class="show-block CartoonNetwork block-1">Camp Lazlo</div>
+        <div class="show-block CartoonNetwork block-1">Ben 10</div>
+        <div class="show-block CartoonNetwork block-1">Star Wars Clone Wars</div>
+        <div class="show-block CartoonNetwork block-1">Adult Swim</div>
+    </div>
 
-<!-- Friday -->
-<div id="fri" class="day">
-<div class="guide">
-<table>
-<tr>
-<th>Time</th>
-<th>Nickelodeon</th>
-<th>Disney</th>
-<th>ABC Family</th>
-<th>Cartoon Network</th>
-<th>MTV</th>
-<th>TLC</th>
-</tr>
-<tr><td>3 PM</td><td class="show">SpongeBob</td><td class="show">Suite Life on Deck</td><td class="show">That '70s Show</td><td class="show">Ed Edd n Eddy</td><td class="show">TRL Rewind</td><td class="show">What Not to Wear</td></tr>
-<tr><td>4 PM</td><td class="show">Drake & Josh</td><td class="show">Wizards of Waverly Place</td><td class="show">Gilmore Girls</td><td class="show">Ben 10</td><td class="show">Pimp My Ride</td><td class="show">Say Yes to the Dress</td></tr>
-<tr><td>5 PM</td><td class="show">iCarly</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Chowder</td><td class="show">Next</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>6 PM</td><td class="show">Fairly OddParents</td><td class="show">Phineas & Ferb</td><td class="show">Secret Life</td><td class="show">Camp Lazlo</td><td class="show">The Hills</td><td class="show">Little People Big World</td></tr>
-<tr><td>7 PM</td><td class="show">iCarly</td><td class="show">Suite Life</td><td class="show">Greek</td><td class="show">Ben 10</td><td class="show">Jersey Shore</td><td class="show">Cake Boss</td></tr>
-<tr><td>8 PM</td><td class="show">SpongeBob</td><td class="show">Wizards</td><td class="show">ABC Family Movie</td><td class="show">Star Wars Clone Wars</td><td class="show">The Hills</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>9 PM</td><td class="show">George Lopez</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Adult Swim</td><td class="show">Real World</td><td class="show">LA Ink</td></tr>
-</table>
-</div>
-</div>
+    <!-- MTV -->
+    <div class="channel-row">
+        <div class="channel-name">MTV</div>
+        <div class="show-block MTV block-1">TRL Rewind</div>
+        <div class="show-block MTV block-1">Pimp My Ride</div>
+        <div class="show-block MTV block-1">Next</div>
+        <div class="show-block MTV block-1">The Hills</div>
+        <div class="show-block MTV block-1">Jersey Shore</div>
+        <div class="show-block MTV block-1">The Hills</div>
+        <div class="show-block MTV block-1">Real World</div>
+    </div>
 
-<!-- Saturday -->
-<div id="sat" class="day">
-<div class="guide">
-<table>
-<tr>
-<th>Time</th>
-<th>Nickelodeon</th>
-<th>Disney</th>
-<th>ABC Family</th>
-<th>Cartoon Network</th>
-<th>MTV</th>
-<th>TLC</th>
-</tr>
-<tr><td>3 PM</td><td class="show">SpongeBob</td><td class="show">Suite Life on Deck</td><td class="show">That '70s Show</td><td class="show">Ed Edd n Eddy</td><td class="show">TRL Rewind</td><td class="show">What Not to Wear</td></tr>
-<tr><td>4 PM</td><td class="show">Drake & Josh</td><td class="show">Wizards of Waverly Place</td><td class="show">Gilmore Girls</td><td class="show">Ben 10</td><td class="show">Pimp My Ride</td><td class="show">Say Yes to the Dress</td></tr>
-<tr><td>5 PM</td><td class="show">iCarly</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Chowder</td><td class="show">Next</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>6 PM</td><td class="show">Fairly OddParents</td><td class="show">Phineas & Ferb</td><td class="show">Secret Life</td><td class="show">Camp Lazlo</td><td class="show">The Hills</td><td class="show">Little People Big World</td></tr>
-<tr><td>7 PM</td><td class="show">iCarly</td><td class="show">Suite Life</td><td class="show">Greek</td><td class="show">Ben 10</td><td class="show">Jersey Shore</td><td class="show">Cake Boss</td></tr>
-<tr><td>8 PM</td><td class="show">SpongeBob</td><td class="show">Wizards</td><td class="show">ABC Family Movie</td><td class="show">Star Wars Clone Wars</td><td class="show">The Hills</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>9 PM</td><td class="show">George Lopez</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Adult Swim</td><td class="show">Real World</td><td class="show">LA Ink</td></tr>
-</table>
-</div>
-</div>
+    <!-- TLC -->
+    <div class="channel-row">
+        <div class="channel-name">TLC</div>
+        <div class="show-block TLC block-1">What Not to Wear</div>
+        <div class="show-block TLC block-1">Say Yes to the Dress</div>
+        <div class="show-block TLC block-1">Jon & Kate Plus 8</div>
+        <div class="show-block TLC block-1">Little People Big World</div>
+        <div class="show-block TLC block-1">Cake Boss</div>
+        <div class="show-block TLC block-1">Jon & Kate Plus 8</div>
+        <div class="show-block TLC block-1">LA Ink</div>
+    </div>
 
-<!-- Sunday -->
-<div id="sun" class="day">
-<div class="guide">
-<table>
-<tr>
-<th>Time</th>
-<th>Nickelodeon</th>
-<th>Disney</th>
-<th>ABC Family</th>
-<th>Cartoon Network</th>
-<th>MTV</th>
-<th>TLC</th>
-</tr>
-<tr><td>3 PM</td><td class="show">SpongeBob</td><td class="show">Suite Life on Deck</td><td class="show">That '70s Show</td><td class="show">Ed Edd n Eddy</td><td class="show">TRL Rewind</td><td class="show">What Not to Wear</td></tr>
-<tr><td>4 PM</td><td class="show">Drake & Josh</td><td class="show">Wizards of Waverly Place</td><td class="show">Gilmore Girls</td><td class="show">Ben 10</td><td class="show">Pimp My Ride</td><td class="show">Say Yes to the Dress</td></tr>
-<tr><td>5 PM</td><td class="show">iCarly</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Chowder</td><td class="show">Next</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>6 PM</td><td class="show">Fairly OddParents</td><td class="show">Phineas & Ferb</td><td class="show">Secret Life</td><td class="show">Camp Lazlo</td><td class="show">The Hills</td><td class="show">Little People Big World</td></tr>
-<tr><td>7 PM</td><td class="show">iCarly</td><td class="show">Suite Life</td><td class="show">Greek</td><td class="show">Ben 10</td><td class="show">Jersey Shore</td><td class="show">Cake Boss</td></tr>
-<tr><td>8 PM</td><td class="show">SpongeBob</td><td class="show">Wizards</td><td class="show">ABC Family Movie</td><td class="show">Star Wars Clone Wars</td><td class="show">The Hills</td><td class="show">Jon & Kate Plus 8</td></tr>
-<tr><td>9 PM</td><td class="show">George Lopez</td><td class="show">Hannah Montana</td><td class="show">Greek</td><td class="show">Adult Swim</td><td class="show">Real World</td><td class="show">LA Ink</td></tr>
-</table>
 </div>
-</div>
-
-<script>
-function showDay(dayId,button){
-var days=document.querySelectorAll(".day");
-var buttons=document.querySelectorAll(".tab-button");
-days.forEach(day=>day.classList.remove("active"));
-buttons.forEach(btn=>btn.classList.remove("active"));
-document.getElementById(dayId).classList.add("active");
-button.classList.add("active");
-}
-</script>
-
-</body>
-</html>
-
 </body>
 </html>

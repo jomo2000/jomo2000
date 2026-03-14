@@ -2,66 +2,296 @@
 <html>
 
 <head>
-<title>Cable TV</title>
+<title>Retro TV Guide</title>
 
 <style>
 
 body{
 background:black;
 color:#00ffff;
-font-family:Courier New, monospace;
+font-family:"Courier New",monospace;
+margin:0;
+padding:20px;
 text-align:center;
 }
 
 h1{
-font-size:48px;
 text-shadow:0 0 10px cyan;
 }
 
-.schedule{
-border:3px solid #00ffff;
-box-shadow:0 0 10px #00ffff;
-padding:20px;
-margin:40px auto;
-width:650px;
-text-align:left;
+/* Tabs */
+
+.tabs{
+margin-bottom:20px;
 }
 
-a{
-color:#00ffff;
-border:1px solid #00ffff;
-padding:3px 6px;
-text-decoration:none;
+.tab-button{
+
+background:black;
+color:cyan;
+border:2px solid cyan;
+padding:8px 14px;
+margin:4px;
+cursor:pointer;
+font-family:"Courier New",monospace;
+
 }
 
-a:hover{
-background:#00ffff;
+.tab-button:hover{
+
+background:cyan;
 color:black;
+
+}
+
+.tab-button.active{
+
+background:cyan;
+color:black;
+
+}
+
+/* Guide container */
+
+.guide-container{
+
+max-width:1000px;
+margin:auto;
+border:5px solid cyan;
+box-shadow:0 0 20px cyan,inset 0 0 10px cyan;
+overflow:hidden;
+height:400px;
+position:relative;
+
+}
+
+/* Scrolling guide */
+
+.guide{
+
+position:absolute;
+width:100%;
+animation:scrollGuide 40s linear infinite;
+
+}
+
+@keyframes scrollGuide{
+
+0%{transform:translateY(100%);}
+100%{transform:translateY(-100%);}
+
+}
+
+/* Table */
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+th,td{
+
+border:1px solid cyan;
+padding:8px;
+text-align:left;
+
+}
+
+th{
+
+background:#001f1f;
+
+}
+
+tr:nth-child(even){
+
+background:#001111;
+
+}
+
+/* Hidden tab content */
+
+.day{
+
+display:none;
+
+}
+
+.day.active{
+
+display:block;
+
+}
+
+.back{
+
+margin-top:20px;
+display:inline-block;
+padding:6px 12px;
+border:2px solid cyan;
+color:cyan;
+text-decoration:none;
+
+}
+
+.back:hover{
+
+background:cyan;
+color:black;
+
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1>Cable TV Schedule</h1>
+<h1>Retro TV Guide</h1>
 
-<div class="schedule">
-<h2>Monday</h2>
-<p>6:00 PM - Show</p>
-<p>7:00 PM - Show</p>
+<div class="tabs">
+
+<button class="tab-button active" onclick="showDay('day1',this)">Nov 6 2009</button>
+<button class="tab-button" onclick="showDay('day2',this)">Nov 7 2009</button>
+<button class="tab-button" onclick="showDay('day3',this)">Nov 8 2009</button>
+
 </div>
 
-<div class="schedule">
-<h2>Tuesday</h2>
-<p>6:00 PM - Show</p>
-<p>7:00 PM - Show</p>
+<!-- DAY 1 -->
+
+<div id="day1" class="day active">
+
+<div class="guide-container">
+<div class="guide">
+
+<table>
+
+<tr>
+<th>Time</th>
+<th>Channel</th>
+<th>Program</th>
+</tr>
+
+<tr><td>12:00 AM</td><td>Disney</td><td>Life with Derek</td></tr>
+<tr><td>12:30 AM</td><td>Disney</td><td>Cory in the House</td></tr>
+<tr><td>1:00 AM</td><td>Disney</td><td>The Replacements</td></tr>
+<tr><td>1:30 AM</td><td>Disney</td><td>Kim Possible</td></tr>
+<tr><td>2:00 AM</td><td>Disney</td><td>The Emperor's New School</td></tr>
+<tr><td>2:30 AM</td><td>Disney</td><td>American Dragon</td></tr>
+<tr><td>3:00 AM</td><td>Disney</td><td>The Proud Family</td></tr>
+<tr><td>4:00 AM</td><td>Disney</td><td>Recess</td></tr>
+<tr><td>5:00 AM</td><td>Disney</td><td>Lilo & Stitch</td></tr>
+<tr><td>6:00 AM</td><td>Disney</td><td>Phineas and Ferb</td></tr>
+<tr><td>7:00 AM</td><td>Disney</td><td>Handy Manny</td></tr>
+<tr><td>8:00 AM</td><td>Disney</td><td>Special Agent Oso</td></tr>
+<tr><td>9:00 AM</td><td>Disney</td><td>Imagination Movers</td></tr>
+<tr><td>10:00 AM</td><td>Disney</td><td>Little Einsteins</td></tr>
+<tr><td>11:00 AM</td><td>Disney</td><td>Tigger & Pooh</td></tr>
+<tr><td>12:00 PM</td><td>Disney</td><td>Stuck in the Suburbs (Movie)</td></tr>
+<tr><td>4:00 PM</td><td>Disney</td><td>Suite Life on Deck</td></tr>
+<tr><td>5:00 PM</td><td>Disney</td><td>Hannah Montana</td></tr>
+<tr><td>6:00 PM</td><td>Disney</td><td>Hannah Montana</td></tr>
+<tr><td>7:00 PM</td><td>Disney</td><td>Wizards of Waverly Place</td></tr>
+<tr><td>8:30 PM</td><td>Disney</td><td>Suite Life on Deck</td></tr>
+<tr><td>9:00 PM</td><td>Disney</td><td>Phineas and Ferb</td></tr>
+<tr><td>10:00 PM</td><td>Disney</td><td>Wizards of Waverly Place</td></tr>
+<tr><td>10:30 PM</td><td>Disney</td><td>Hannah Montana</td></tr>
+<tr><td>11:00 PM</td><td>Disney</td><td>Phineas and Ferb</td></tr>
+
+</table>
+
+</div>
 </div>
 
-<br>
-<a href="index.html">Back to Home</a>
+</div>
+
+<!-- DAY 2 -->
+
+<div id="day2" class="day">
+
+<div class="guide-container">
+<div class="guide">
+
+<table>
+
+<tr>
+<th>Time</th>
+<th>Channel</th>
+<th>Program</th>
+</tr>
+
+<tr><td>12:00 PM</td><td>Nick</td><td>SpongeBob SquarePants</td></tr>
+<tr><td>12:30 PM</td><td>Nick</td><td>SpongeBob SquarePants</td></tr>
+<tr><td>1:00 PM</td><td>Nick</td><td>iCarly</td></tr>
+<tr><td>1:30 PM</td><td>Nick</td><td>Drake & Josh</td></tr>
+<tr><td>2:00 PM</td><td>Nick</td><td>Zoey 101</td></tr>
+<tr><td>3:00 PM</td><td>Nick</td><td>The Fairly OddParents</td></tr>
+<tr><td>4:00 PM</td><td>Nick</td><td>Avatar: The Last Airbender</td></tr>
+<tr><td>5:00 PM</td><td>Nick</td><td>iCarly</td></tr>
+<tr><td>6:00 PM</td><td>Nick</td><td>SpongeBob SquarePants</td></tr>
+
+</table>
+
+</div>
+</div>
+
+</div>
+
+<!-- DAY 3 -->
+
+<div id="day3" class="day">
+
+<div class="guide-container">
+<div class="guide">
+
+<table>
+
+<tr>
+<th>Time</th>
+<th>Channel</th>
+<th>Program</th>
+</tr>
+
+<tr><td>12:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
+<tr><td>12:30 PM</td><td>Cartoon Network</td><td>Chowder</td></tr>
+<tr><td>1:00 PM</td><td>Cartoon Network</td><td>The Marvelous Misadventures of Flapjack</td></tr>
+<tr><td>1:30 PM</td><td>Cartoon Network</td><td>Total Drama Island</td></tr>
+<tr><td>2:00 PM</td><td>Cartoon Network</td><td>Foster's Home for Imaginary Friends</td></tr>
+<tr><td>3:00 PM</td><td>Cartoon Network</td><td>Ed, Edd n Eddy</td></tr>
+<tr><td>4:00 PM</td><td>Cartoon Network</td><td>Teen Titans</td></tr>
+<tr><td>5:00 PM</td><td>Cartoon Network</td><td>Ben 10</td></tr>
+
+</table>
+
+</div>
+</div>
+
+</div>
+
+<a href="index.html" class="back">Back to Home</a>
+
+<script>
+
+function showDay(dayId,button){
+
+var days=document.querySelectorAll(".day");
+var buttons=document.querySelectorAll(".tab-button");
+
+days.forEach(function(day){
+day.classList.remove("active");
+});
+
+buttons.forEach(function(btn){
+btn.classList.remove("active");
+});
+
+document.getElementById(dayId).classList.add("active");
+button.classList.add("active");
+
+}
+
+</script>
 
 </body>
-
 </html>

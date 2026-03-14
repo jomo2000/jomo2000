@@ -34,7 +34,7 @@ h1 {
     color: #000;
 }
 .guide-container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 20px auto;
     border: 2px solid #444;
     overflow-x: auto;
@@ -61,17 +61,18 @@ h1 {
     border-bottom: 1px solid #444;
 }
 .channel-name {
-    width: 150px;
+    width: 180px;
     background: #222;
     text-align: right;
     padding-right: 10px;
     line-height: 40px;
     font-weight: bold;
     border-right: 1px solid #444;
-    color: #ff9900;
+    color: #ccc;
 }
 /* Shows */
 .show-block {
+    min-width: 120px;
     height: 40px;
     line-height: 40px;
     color: #fff;
@@ -81,18 +82,19 @@ h1 {
     text-overflow: ellipsis;
     cursor: pointer;
     transition: transform 0.2s, filter 0.2s;
+    border: 1px solid #000;
 }
 .show-block:hover {
     transform: scale(1.05);
     filter: brightness(1.2);
 }
-/* Channel colors */
-.Nickelodeon { background: #ff6600; }
-.Disney { background: #3399ff; }
-.ABCFamily { background: #ffcc33; color:#000; }
-.CartoonNetwork { background: #999999; color:#000; }
-.MTV { background: #cc0066; }
-.TLC { background: #33cc33; color:#000; }
+/* Muted channel colors */
+.Nickelodeon { background: #b86f4c; }
+.Disney { background: #557799; }
+.ABCFamily { background: #d0b064; color:#000; }
+.CartoonNetwork { background: #888888; color:#000; }
+.MTV { background: #9d5c70; }
+.TLC { background: #6c9975; }
 /* Show width proportional to duration in 30-min blocks */
 .block-1 { flex: 1; }  /* 30 min */
 .block-2 { flex: 2; }  /* 1 hr */
@@ -123,7 +125,7 @@ function showDay(dayId,button){
 }
 </script>
 
-<!-- Function to generate a day's guide -->
+<!-- MONDAY -->
 <div id="mon" class="day active">
 <div class="guide-container">
     <div class="time-bar">
@@ -139,12 +141,12 @@ function showDay(dayId,button){
     <!-- Channels Monday -->
     <div class="channel-row">
         <div class="channel-name">Nickelodeon</div>
-        <div class="show-block Nickelodeon block-1">SpongeBob</div>
+        <div class="show-block Nickelodeon block-1">SpongeBob SquarePants</div>
         <div class="show-block Nickelodeon block-1">iCarly</div>
         <div class="show-block Nickelodeon block-1">Drake & Josh</div>
         <div class="show-block Nickelodeon block-1">Fairly OddParents</div>
         <div class="show-block Nickelodeon block-1">iCarly</div>
-        <div class="show-block Nickelodeon block-1">SpongeBob</div>
+        <div class="show-block Nickelodeon block-1">SpongeBob SquarePants</div>
         <div class="show-block Nickelodeon block-1">George Lopez</div>
     </div>
 
@@ -154,8 +156,8 @@ function showDay(dayId,button){
         <div class="show-block Disney block-1">Wizards of Waverly Place</div>
         <div class="show-block Disney block-1">Hannah Montana</div>
         <div class="show-block Disney block-1">Phineas & Ferb</div>
-        <div class="show-block Disney block-1">Suite Life</div>
-        <div class="show-block Disney block-1">Wizards</div>
+        <div class="show-block Disney block-1">Suite Life on Deck</div>
+        <div class="show-block Disney block-1">Wizards of Waverly Place</div>
         <div class="show-block Disney block-1">Hannah Montana</div>
     </div>
 
@@ -163,7 +165,7 @@ function showDay(dayId,button){
         <div class="channel-name">ABC Family</div>
         <div class="show-block ABCFamily block-1">Gilmore Girls</div>
         <div class="show-block ABCFamily block-1">Greek</div>
-        <div class="show-block ABCFamily block-1">Secret Life</div>
+        <div class="show-block ABCFamily block-1">Secret Life of the American Teenager</div>
         <div class="show-block ABCFamily block-1">Full House</div>
         <div class="show-block ABCFamily block-1">Greek</div>
         <div class="show-block ABCFamily block-1">ABC Family Movie</div>
@@ -175,10 +177,10 @@ function showDay(dayId,button){
         <div class="show-block CartoonNetwork block-1">Ben 10</div>
         <div class="show-block CartoonNetwork block-1">Chowder</div>
         <div class="show-block CartoonNetwork block-1">Camp Lazlo</div>
-        <div class="show-block CartoonNetwork block-1">Ed Edd n Eddy</div>
-        <div class="show-block CartoonNetwork block-1">Star Wars Clone Wars</div>
+        <div class="show-block CartoonNetwork block-1">Ed, Edd n Eddy</div>
+        <div class="show-block CartoonNetwork block-1">Star Wars: Clone Wars</div>
         <div class="show-block CartoonNetwork block-1">Ben 10</div>
-        <div class="show-block CartoonNetwork block-1">Adult Swim</div>
+        <div class="show-block CartoonNetwork block-1">Adult Swim Preview</div>
     </div>
 
     <div class="channel-row">
@@ -197,7 +199,7 @@ function showDay(dayId,button){
         <div class="show-block TLC block-1">What Not to Wear</div>
         <div class="show-block TLC block-1">Say Yes to the Dress</div>
         <div class="show-block TLC block-1">Jon & Kate Plus 8</div>
-        <div class="show-block TLC block-1">Little People Big World</div>
+        <div class="show-block TLC block-1">Little People, Big World</div>
         <div class="show-block TLC block-1">Cake Boss</div>
         <div class="show-block TLC block-1">Jon & Kate Plus 8</div>
         <div class="show-block TLC block-1">LA Ink</div>
@@ -205,22 +207,23 @@ function showDay(dayId,button){
 </div>
 </div>
 
-<!-- Tuesday -->
+<!-- TUESDAY -->
 <div id="tue" class="day">
 <div class="guide-container">
     <div class="time-bar">
-        <div class="time-slot">3 PM</div><div class="time-slot">4 PM</div><div class="time-slot">5 PM</div><div class="time-slot">6 PM</div><div class="time-slot">7 PM</div><div class="time-slot">8 PM</div><div class="time-slot">9 PM</div>
+        <div class="time-slot">3 PM</div><div class="time-slot">4 PM</div><div class="time-slot">5 PM</div>
+        <div class="time-slot">6 PM</div><div class="time-slot">7 PM</div><div class="time-slot">8 PM</div><div class="time-slot">9 PM</div>
     </div>
-    <!-- Tuesday shows (different from Monday) -->
+    <!-- Channels Tuesday -->
     <div class="channel-row">
         <div class="channel-name">Nickelodeon</div>
         <div class="show-block Nickelodeon block-1">iCarly</div>
-        <div class="show-block Nickelodeon block-1">SpongeBob</div>
+        <div class="show-block Nickelodeon block-1">SpongeBob SquarePants</div>
         <div class="show-block Nickelodeon block-1">Fairly OddParents</div>
         <div class="show-block Nickelodeon block-1">Drake & Josh</div>
         <div class="show-block Nickelodeon block-1">George Lopez</div>
         <div class="show-block Nickelodeon block-1">iCarly</div>
-        <div class="show-block Nickelodeon block-1">SpongeBob</div>
+        <div class="show-block Nickelodeon block-1">SpongeBob SquarePants</div>
     </div>
 
     <div class="channel-row">
@@ -230,14 +233,19 @@ function showDay(dayId,button){
         <div class="show-block Disney block-1">Wizards of Waverly Place</div>
         <div class="show-block Disney block-1">Phineas & Ferb</div>
         <div class="show-block Disney block-1">Hannah Montana</div>
-        <div class="show-block Disney block-1">Suite Life</div>
-        <div class="show-block Disney block-1">Wizards</div>
+        <div class="show-block Disney block-1">Suite Life on Deck</div>
+        <div class="show-block Disney block-1">Wizards of Waverly Place</div>
     </div>
 
-<!-- ... similarly add Wed, Thu, Fri, Sat, Sun with unique shows ... -->
+<!-- Wednesday-Sunday follows same format with unique muted shows for each channel -->
 
 </div>
 </div>
+
+<script>
+// Add more days with unique shows for Wed-Sun
+// I can provide all Wed-Sun if you want the full completed 7-day guide.
+</script>
 
 </body>
 </html>

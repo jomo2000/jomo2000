@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <title>Jomo's Website</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rubik+Glitch&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f5f7fa;
+      background: #e2e8f0; /* blue-gray */
       color: #1e1e1e;
     }
 
@@ -23,32 +23,39 @@
     }
 
     header h1 {
-      font-size: 36px;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 42px;
       margin-bottom: 10px;
     }
 
     header p {
-      color: #666;
+      color: #555;
       font-size: 16px;
     }
 
-    /* Navigation (replaces retro icons look) */
+    /* Navigation */
     .desktop-icons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      align-items: center;
+      gap: 20px;
       padding: 20px;
+      text-align: center;
     }
 
     .icon {
       text-decoration: none;
       color: #333;
       background: white;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 15px;
       width: 120px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
       transition: all 0.2s ease;
     }
 
@@ -62,20 +69,23 @@
       margin: 0;
       font-size: 14px;
       font-weight: 500;
+      text-align: center;
     }
 
     .icon:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.15);
     }
 
-    /* Main content layout */
+    /* Content layout */
     .below-icons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      align-items: flex-start;
+      gap: 25px;
       padding: 30px;
+      text-align: center;
     }
 
     .content-box {
@@ -84,9 +94,10 @@
       padding: 20px;
       width: 320px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      text-align: center;
     }
 
-    /* Links box */
+    /* Links box centered */
     .link-box h2 {
       margin-top: 0;
       font-size: 20px;
@@ -95,10 +106,12 @@
     .link-box ul {
       list-style: none;
       padding: 0;
+      margin: 0;
+      text-align: center;
     }
 
     .link-box li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .link-box a {
@@ -119,7 +132,11 @@
       border: none;
     }
 
-    /* Visitor + music */
+    /* Visitor + music centered */
+    .visitor-counter {
+      text-align: center;
+    }
+
     .visitor-counter p {
       margin-bottom: 5px;
       font-size: 14px;
@@ -132,11 +149,16 @@
       pointer-events: none;
     }
 
+    .music-player {
+      display: flex;
+      justify-content: center;
+    }
+
     .music-player audio {
       width: 100%;
     }
 
-    /* Skateboard cat (UNCHANGED vibe) */
+    /* Skateboard cat */
     .skateboarder {
       position: fixed;
       bottom: 10px;
@@ -167,8 +189,8 @@
 <body>
 
   <header>
-    <h1>Welcome to My Website</h1>
-    <p>My personal corner of the internet</p>
+    <h1>Welcome to Jomo's World ⚡</h1>
+    <p>Explore, vibe, and stay awhile</p>
   </header>
 
   <!-- Navigation -->

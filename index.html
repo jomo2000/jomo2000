@@ -26,7 +26,6 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
-      z-index: 100;
     }
 
     .logo {
@@ -43,7 +42,6 @@
       text-decoration: none;
       color: #333;
       font-size: 14px;
-      transition: 0.2s;
     }
 
     .nav-links a:hover {
@@ -64,25 +62,9 @@
     .hero p {
       font-size: 18px;
       color: #555;
-      margin-bottom: 30px;
     }
 
-    .hero button {
-      padding: 12px 24px;
-      border: none;
-      background: #0077ff;
-      color: white;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .hero button:hover {
-      background: #005edc;
-    }
-
-    /* PAGE GRID */
+    /* GRID */
     .page-grid {
       display: flex;
       flex-wrap: wrap;
@@ -110,10 +92,9 @@
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.15);
     }
 
-    /* CONTENT SECTION */
+    /* CONTENT */
     .content {
       display: flex;
       flex-wrap: wrap;
@@ -131,38 +112,64 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
-    .box iframe {
+    iframe {
       width: 100%;
       height: 200px;
       border-radius: 10px;
       border: none;
     }
 
-    .box ul {
+    ul {
       list-style: none;
       padding: 0;
     }
 
-    .box li {
+    li {
       margin-bottom: 10px;
     }
 
-    .box a {
-      text-decoration: none;
+    a {
       color: #0077ff;
+      text-decoration: none;
     }
 
-    .box a:hover {
+    a:hover {
       text-decoration: underline;
     }
 
     .visitor img {
-      margin: 10px auto;
       display: block;
+      margin: 10px auto;
     }
 
     audio {
       width: 100%;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #2f4f6f;
+      color: #e6edf5;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .footer p {
+      margin: 8px 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .footer .divider {
+      margin: 15px 0;
+      opacity: 0.5;
+    }
+
+    .footer .copyright {
+      margin-top: 15px;
+      font-size: 13px;
+      opacity: 0.7;
     }
 
     /* CAT */
@@ -212,56 +219,23 @@
 
   <!-- HERO -->
   <div class="hero">
-    <h1>Welcome to My Website</h1>
-    <p>8008135</p>
-    <button onclick="window.scrollTo({top: 500, behavior: 'smooth'})">
-      Explore ↓
-    </button>
+    <h1>Welcome to Jomo's World 🚀</h1>
+    <p>A curated corner of the internet — explore what I like</p>
   </div>
 
-  <!-- PAGE CARDS -->
+  <!-- CARDS -->
   <div class="page-grid">
-
-    <a href="recipes.html" class="card">
-      <img src="recipes-icon.png">
-      <p>Recipes</p>
-    </a>
-
-    <a href="music-videos.html" class="card">
-      <img src="music-videos-icon.png">
-      <p>Music</p>
-    </a>
-
-    <a href="webkinz.html" class="card">
-      <img src="webkinz-icon.png">
-      <p>Webkinz</p>
-    </a>
-
-    <a href="tv-shows.html" class="card">
-      <img src="tv-shows-icon.png">
-      <p>TV Shows</p>
-    </a>
-
-    <a href="movies.html" class="card">
-      <img src="movies-icon.png">
-      <p>Movies</p>
-    </a>
-
-    <a href="cable-tv.html" class="card">
-      <img src="cable-tv-schedule-icon.png">
-      <p>Cable TV</p>
-    </a>
-
-    <a href="2000s-nostalgia.html" class="card">
-      <img src="early-2000s-nostalgia.png">
-      <p>2000s</p>
-    </a>
-
+    <a href="recipes.html" class="card"><img src="recipes-icon.png"><p>Recipes</p></a>
+    <a href="music-videos.html" class="card"><img src="music-videos-icon.png"><p>Music</p></a>
+    <a href="webkinz.html" class="card"><img src="webkinz-icon.png"><p>Webkinz</p></a>
+    <a href="tv-shows.html" class="card"><img src="tv-shows-icon.png"><p>TV</p></a>
+    <a href="movies.html" class="card"><img src="movies-icon.png"><p>Movies</p></a>
+    <a href="cable-tv.html" class="card"><img src="cable-tv-schedule-icon.png"><p>Cable</p></a>
+    <a href="2000s-nostalgia.html" class="card"><img src="early-2000s-nostalgia.png"><p>2000s</p></a>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- CONTENT -->
   <div class="content">
-
     <div class="box">
       <h3>Links</h3>
       <ul>
@@ -283,7 +257,16 @@
         <source src="music.mp3" type="audio/mpeg">
       </audio>
     </div>
+  </div>
 
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>thanks for stopping by</p>
+    <p>no rush, take your time</p>
+    <p>built slowly over time</p>
+    <p>more coming soon</p>
+    <p class="divider">—</p>
+    <p class="copyright">© 2026 Jomo. All rights reserved.</p>
   </div>
 
   <!-- CAT -->
@@ -292,5 +275,4 @@
   </div>
 
 </body>
-
 </html>

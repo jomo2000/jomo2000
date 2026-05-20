@@ -29,7 +29,7 @@
 
   textarea {
     width: 100%;
-    height: 220px;
+    height: 200px;
     padding: 15px;
     font-size: 16px;
     border-radius: 12px;
@@ -38,9 +38,27 @@
     resize: none;
   }
 
+  .controls {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .slider-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+  input[type="range"] {
+    width: 100%;
+  }
+
   button {
     width: 100%;
-    margin-top: 12px;
     padding: 14px;
     font-size: 18px;
     border: none;
@@ -58,7 +76,7 @@
     text-align: center;
     font-size: 12px;
     opacity: 0.7;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 </style>
 </head>
@@ -68,14 +86,35 @@
 <div class="container">
   <h1>Study Voice Reader</h1>
 
-  <textarea id="text" placeholder="Paste your study notes or story here..."></textarea>
+  <textarea id="text" placeholder="Paste your notes or story here..."></textarea>
 
-  <button onclick="speakText()">Speak</button>
+  <div class="controls">
 
-  <div class="hint">Tip: Use “...” commas, and line breaks for more natural speech</div>
+    <div class="slider-box">
+      <span>Speed</span>
+      <span id="speedValue">0.75x</span>
+    </div>
+
+    <input type="range" id="speedSlider" min="0.5" max="1.2" step="0.01" value="0.75">
+
+    <button onclick="speakText()">Speak</button>
+
+    <div class="hint">
+      Tip: Use commas, pauses, and line breaks for more natural speech
+    </div>
+
+  </div>
 </div>
 
 <script>
+
+// Update slider display
+const slider = document.getElementById("speedSlider");
+const speedValue = document.getElementById("speedValue");
+
+slider.addEventListener("input", () => {
+  speedValue.textContent = slider.value + "x";
+});
 
 // Pick best available voice
 function getBestVoice() {
@@ -97,7 +136,7 @@ function getBestVoice() {
   return voices[0];
 }
 
-// Split text into natural speech chunks
+// Split text into natural chunks
 function splitText(text) {
   return text
     .replace(/\n/g, ". ")
@@ -107,13 +146,12 @@ function splitText(text) {
 function speakText() {
 
   const text = document.getElementById("text").value;
-
   if (!text.trim()) return;
 
   speechSynthesis.cancel();
 
-  const voices = speechSynthesis.getVoices();
   const voice = getBestVoice();
+  const rate = parseFloat(document.getElementById("speedSlider").value);
 
   const chunks = splitText(text);
 
@@ -127,14 +165,14 @@ function speakText() {
 
     utterance.voice = voice;
 
-    // HUMAN-LIKE SETTINGS
-    utterance.rate = 0.88;   // slower = more natural
-    utterance.pitch = 1.05;  // slight warmth
+    // HUMAN SETTINGS (now controlled by slider)
+    utterance.rate = rate;     // adjustable speed
+    utterance.pitch = 1.03;    // natural female tone
     utterance.volume = 1;
 
     utterance.onend = () => {
       i++;
-      setTimeout(speakNext, 220); // natural pause between sentences
+      setTimeout(speakNext, 200); // natural pause
     };
 
     speechSynthesis.speak(utterance);
@@ -143,7 +181,7 @@ function speakText() {
   speakNext();
 }
 
-// Ensure voices load properly
+// Load voices properly
 speechSynthesis.onvoiceschanged = () => {
   speechSynthesis.getVoices();
 };

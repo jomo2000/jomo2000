@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Natural Voice Reader</title>
+<title>Audiobook Voice Reader</title>
 
 <style>
   body {
@@ -18,12 +18,13 @@
   }
 
   .container {
-    width: 600px;
+    width: 650px;
     max-width: 92%;
   }
 
   h1 {
     text-align: center;
+    margin-bottom: 10px;
   }
 
   textarea {
@@ -41,18 +42,25 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
-  .slider-box {
+  .row {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 13px;
     opacity: 0.9;
   }
 
-  input[type="range"] {
+  input[type="range"], select {
     width: 100%;
+  }
+
+  select {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
   }
 
   button {
@@ -81,30 +89,40 @@
 <body>
 
 <div class="container">
-  <h1>Study Voice Reader</h1>
 
-  <textarea id="text" placeholder="Paste your notes or story here..."></textarea>
+  <h1>Audiobook Voice Reader</h1>
+
+  <textarea id="text" placeholder="Paste your notes, story, or study guide here..."></textarea>
 
   <div class="controls">
 
+    <!-- PRESET -->
+    <select id="preset" onchange="applyPreset()">
+      <option value="normal">🎧 Normal Narrator</option>
+      <option value="deep">🎬 Deep Cinematic</option>
+      <option value="soft">🌙 Soft Whisper Style</option>
+      <option value="teacher">📘 Teacher Mode</option>
+      <option value="dramatic">🎭 Dramatic Storytelling</option>
+    </select>
+
     <!-- SPEED -->
-    <div class="slider-box">
+    <div class="row">
       <span>Speed</span>
       <span id="speedValue">0.75x</span>
     </div>
     <input type="range" id="speedSlider" min="0.5" max="1.2" step="0.01" value="0.75">
 
     <!-- PITCH -->
-    <div class="slider-box">
-      <span>Pitch (deeper ↔ higher)</span>
-      <span id="pitchValue">1.00</span>
+    <div class="row">
+      <span>Pitch</span>
+      <span id="pitchValue">0.95</span>
     </div>
-    <input type="range" id="pitchSlider" min="0.5" max="1.5" step="0.01" value="1.00">
+    <input type="range" id="pitchSlider" min="0.5" max="1.5" step="0.01" value="0.95">
 
     <button onclick="speakText()">Speak</button>
 
     <div class="hint">
-      Tip: Lower pitch (0.7–0.95) = deeper, more natural voice
+      Tip: Lower pitch + slower speed = more natural audiobook sound
     </div>
 
   </div>
@@ -116,16 +134,11 @@
 const speedSlider = document.getElementById("speedSlider");
 const pitchSlider = document.getElementById("pitchSlider");
 
-const speedValue = document.getElementById("speedValue");
-const pitchValue = document.getElementById("pitchValue");
+speedSlider.oninput = () =>
+  document.getElementById("speedValue").textContent = speedSlider.value + "x";
 
-speedSlider.addEventListener("input", () => {
-  speedValue.textContent = speedSlider.value + "x";
-});
-
-pitchSlider.addEventListener("input", () => {
-  pitchValue.textContent = pitchSlider.value;
-});
+pitchSlider.oninput = () =>
+  document.getElementById("pitchValue").textContent = pitchSlider.value;
 
 // Voice selection
 function getBestVoice() {
@@ -147,20 +160,63 @@ function getBestVoice() {
   return voices[0];
 }
 
-// Split into natural chunks
-function splitText(text) {
+// Clean messy text into smoother speech
+function cleanText(text) {
   return text
     .replace(/\n/g, ". ")
-    .match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+    .replace(/\s+/g, " ")
+    .replace(/—/g, "... ")
+    .replace(/:/g, ", ")
+    .replace(/;/g, ", ");
+}
+
+// Split into natural chunks
+function splitText(text) {
+  return text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+}
+
+// PRESET SYSTEM
+function applyPreset() {
+
+  const preset = document.getElementById("preset").value;
+
+  if (preset === "normal") {
+    speedSlider.value = 0.75;
+    pitchSlider.value = 0.95;
+  }
+
+  if (preset === "deep") {
+    speedSlider.value = 0.72;
+    pitchSlider.value = 0.80;
+  }
+
+  if (preset === "soft") {
+    speedSlider.value = 0.68;
+    pitchSlider.value = 1.05;
+  }
+
+  if (preset === "teacher") {
+    speedSlider.value = 0.78;
+    pitchSlider.value = 0.98;
+  }
+
+  if (preset === "dramatic") {
+    speedSlider.value = 0.80;
+    pitchSlider.value = 1.10;
+  }
+
+  speedSlider.oninput();
+  pitchSlider.oninput();
 }
 
 function speakText() {
 
-  const text = document.getElementById("text").value;
-  if (!text.trim()) return;
+  const raw = document.getElementById("text").value;
+  if (!raw.trim()) return;
 
   speechSynthesis.cancel();
 
+  const text = cleanText(raw);
   const voice = getBestVoice();
 
   const rate = parseFloat(speedSlider.value);
@@ -178,14 +234,13 @@ function speakText() {
 
     utterance.voice = voice;
 
-    // HUMAN CONTROLS
     utterance.rate = rate;
     utterance.pitch = pitch;
     utterance.volume = 1;
 
     utterance.onend = () => {
       i++;
-      setTimeout(speakNext, 200);
+      setTimeout(speakNext, 180);
     };
 
     speechSynthesis.speak(utterance);

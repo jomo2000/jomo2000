@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Natural Voice Study Reader</title>
+<title>Natural Voice Reader</title>
 
 <style>
   body {
@@ -24,7 +24,6 @@
 
   h1 {
     text-align: center;
-    margin-bottom: 10px;
   }
 
   textarea {
@@ -42,13 +41,12 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .slider-box {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     font-size: 14px;
     opacity: 0.9;
   }
@@ -76,7 +74,6 @@
     text-align: center;
     font-size: 12px;
     opacity: 0.7;
-    margin-top: 6px;
   }
 </style>
 </head>
@@ -90,17 +87,24 @@
 
   <div class="controls">
 
+    <!-- SPEED -->
     <div class="slider-box">
       <span>Speed</span>
       <span id="speedValue">0.75x</span>
     </div>
-
     <input type="range" id="speedSlider" min="0.5" max="1.2" step="0.01" value="0.75">
+
+    <!-- PITCH -->
+    <div class="slider-box">
+      <span>Pitch (deeper ↔ higher)</span>
+      <span id="pitchValue">1.00</span>
+    </div>
+    <input type="range" id="pitchSlider" min="0.5" max="1.5" step="0.01" value="1.00">
 
     <button onclick="speakText()">Speak</button>
 
     <div class="hint">
-      Tip: Use commas, pauses, and line breaks for more natural speech
+      Tip: Lower pitch (0.7–0.95) = deeper, more natural voice
     </div>
 
   </div>
@@ -108,15 +112,22 @@
 
 <script>
 
-// Update slider display
-const slider = document.getElementById("speedSlider");
-const speedValue = document.getElementById("speedValue");
+// UI updates
+const speedSlider = document.getElementById("speedSlider");
+const pitchSlider = document.getElementById("pitchSlider");
 
-slider.addEventListener("input", () => {
-  speedValue.textContent = slider.value + "x";
+const speedValue = document.getElementById("speedValue");
+const pitchValue = document.getElementById("pitchValue");
+
+speedSlider.addEventListener("input", () => {
+  speedValue.textContent = speedSlider.value + "x";
 });
 
-// Pick best available voice
+pitchSlider.addEventListener("input", () => {
+  pitchValue.textContent = pitchSlider.value;
+});
+
+// Voice selection
 function getBestVoice() {
   const voices = speechSynthesis.getVoices();
 
@@ -136,7 +147,7 @@ function getBestVoice() {
   return voices[0];
 }
 
-// Split text into natural chunks
+// Split into natural chunks
 function splitText(text) {
   return text
     .replace(/\n/g, ". ")
@@ -151,7 +162,9 @@ function speakText() {
   speechSynthesis.cancel();
 
   const voice = getBestVoice();
-  const rate = parseFloat(document.getElementById("speedSlider").value);
+
+  const rate = parseFloat(speedSlider.value);
+  const pitch = parseFloat(pitchSlider.value);
 
   const chunks = splitText(text);
 
@@ -165,14 +178,14 @@ function speakText() {
 
     utterance.voice = voice;
 
-    // HUMAN SETTINGS (now controlled by slider)
-    utterance.rate = rate;     // adjustable speed
-    utterance.pitch = 1.03;    // natural female tone
+    // HUMAN CONTROLS
+    utterance.rate = rate;
+    utterance.pitch = pitch;
     utterance.volume = 1;
 
     utterance.onend = () => {
       i++;
-      setTimeout(speakNext, 200); // natural pause
+      setTimeout(speakNext, 200);
     };
 
     speechSynthesis.speak(utterance);
@@ -181,12 +194,12 @@ function speakText() {
   speakNext();
 }
 
-// Load voices properly
+// load voices
 speechSynthesis.onvoiceschanged = () => {
   speechSynthesis.getVoices();
 };
 
-// Enter key to speak
+// Enter to speak
 document.getElementById("text").addEventListener("keydown", function(e) {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
